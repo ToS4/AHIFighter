@@ -113,10 +113,10 @@ class Knight():
         if self.rect.right + delta_x > WIDTH:
             delta_x = WIDTH - self.rect.right
             self.gravity_x = 0
-        if self.rect.bottom + delta_y > HEIGHT - 110:
+        if self.rect.bottom + delta_y > HEIGHT - self.y:
             self.gravity_y = 0
             self.jumping = False
-            delta_y = HEIGHT - 100 - self.rect.bottom
+            delta_y = HEIGHT - self.y - self.rect.bottom
 
         if self.jumping:
             new_action = 2
