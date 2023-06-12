@@ -343,12 +343,14 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     wizard_img = pygame.transform.scale(wizard_img, (99*scale_width_factor, 99*scale_height_factor))
     wizard_select = False
 
+    """
     # This will be the box for Nathan selection
     nathan_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "??")
     nathan_box.rect.center = (MAIN_WIDTH/2+120*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
     nathan_img = pygame.image.load(os.path.join("src/assets/imgs/BuckBorris/Icon.png")).convert_alpha()
     nathan_img = pygame.transform.scale(nathan_img, (99*scale_width_factor, 99*scale_height_factor))
     nathan_select = False
+    """
 
     char = ""
     text = Button(0,0,300,80,(255,255,255,0),char,"black", font_scaled,scale_width_factor, scale_height_factor, None)
@@ -373,10 +375,12 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
                         wizard_box.select()
                         player += 1
                         wizard_select = True
+                    """
                     elif nathan_box.rect.collidepoint(mouse_pos):
                         nathan_box.select()
                         player += 1
                         nathan_select = True
+                    """
                 elif player == 2:
                     if knight_box.rect.collidepoint(mouse_pos) and not knight_select:
                         knight_box.select()
@@ -384,19 +388,24 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
                     elif wizard_box.rect.collidepoint(mouse_pos) and not wizard_select:
                         wizard_box.select()
                         player = "2"
+                    """
                     elif nathan_box.rect.collidepoint(mouse_pos) and not nathan_select:
                         nathan_box.select()
                         player = "2"
+                    """
                     
 
         if knight_box.rect.collidepoint(mouse_pos):
             char = knight_box.char
         elif wizard_box.rect.collidepoint(mouse_pos):
             char = wizard_box.char
-        elif nathan_box.rect.collidepoint(mouse_pos):
-            char = nathan_box.char
         else:
             char = ""
+
+        """
+        elif nathan_box.rect.collidepoint(mouse_pos):
+            char = nathan_box.char
+        """
         
         text = Button(0,0,300,80,(255,255,255,0),char,"black", font_scaled,scale_width_factor, scale_height_factor, None)
         text.rect.width = 10
@@ -416,13 +425,17 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
         start_button.draw(SCREEN)
         knight_box.draw(SCREEN)
         wizard_box.draw(SCREEN)
+        """
         nathan_box.draw(SCREEN)
+        """
         text.draw(SCREEN)
 
         # this will blit the images into the boxes
         SCREEN.blit(knight_img, knight_box)
         SCREEN.blit(wizard_img, wizard_box)
+        """
         SCREEN.blit(nathan_img, nathan_box)
+        """
         
         pygame.display.update()
 

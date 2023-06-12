@@ -1,6 +1,7 @@
 import pygame, json, random, os
 from Knight import Knight
 from LightningMage import LightningMage
+from FireWizard import FireWizard
 from AnimationController import Animation
 import UI as UI
 import HUD as HUD
@@ -84,8 +85,25 @@ def select_character(name, player):
             
         return LightningMage( pos, scale_factor, character_hitbox_size, flip, controls, animations)
 
+    elif name == "FireWizard":
+
+        files = []
+
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Idle.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Run.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Jump.png").convert_alpha(),7))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Hurt.png").convert_alpha(),30))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Dead.png").convert_alpha(),14))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Ability.png").convert_alpha(),6))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Attack1.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Attack2.png").convert_alpha(),10))
+
+        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
+            
+        return FireWizard( pos, scale_factor, character_hitbox_size, flip, controls, animations)
+
 player1 = select_character("Knight",1)
-player2 = select_character("LightningMage",2)
+player2 = select_character("FireWizard",2)
 
 healthbar_1 = HUD.Health_Bar(100 ,20, 250, 40, scale_factor_width, scale_factor_height)
 healthbar_2 = HUD.Health_Bar(WIDTH-350, 20, 250, 40, scale_factor_width, scale_factor_height, True)
@@ -129,21 +147,21 @@ def game_loop():
 
         if player1.health <= 0:
             player1 = select_character("Knight",1)
-            player2 = select_character("LightningMage",2)
+            player2 = select_character("FireWizard",2)
             #current_bg = backgrounds[random.randint(0,2)]
             UI.gameover_menu(scale_factor_width, scale_factor_height, game_loop, settings, "Player 2")
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
         elif player2.health <= 0:
             player1 = select_character("Knight",1)
-            player2 = select_character("LightningMage",2)
+            player2 = select_character("FireWizard",2)
             #current_bg = backgrounds[random.randint(0,2)]
             UI.gameover_menu(scale_factor_width, scale_factor_height, game_loop, settings, "Player 1")
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
         if reset:
             player1 = select_character("Knight",1)
-            player2 = select_character("LightningMage",2)
+            player2 = select_character("FireWizard",2)
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
             reset = not reset
