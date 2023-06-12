@@ -175,7 +175,7 @@ class Knight():
             self.action = 3 + self.attack_index
 
             def check():
-                if Hitbox((self.rect.x,self.rect.y),(self.width_factor,self.height_factor),self).detect_collision(SCREEN, target):
+                if Hitbox((0,0),(self.width_factor,self.height_factor),self).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
