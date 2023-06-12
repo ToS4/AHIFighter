@@ -171,7 +171,7 @@ class LightningMage():
             self.action = 6 + self.attack_index
 
             def check():
-                if Hitbox((-50 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1.5).detect_collision(SCREEN, target):
+                if Hitbox((-75 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1.5).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
