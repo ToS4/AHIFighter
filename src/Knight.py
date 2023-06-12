@@ -44,7 +44,7 @@ class Knight():
         self.damage = 5
 
         self.using = False
-        self.max_stamina = 20
+        self.max_stamina = 25
         self.stamina = self.max_stamina
         self.block_speed = 1 * self.width_factor
 
@@ -175,7 +175,7 @@ class Knight():
             self.action = 3 + self.attack_index
 
             def check():
-                if Hitbox((0,0),(self.width_factor,self.height_factor),self).detect_collision(SCREEN, target):
+                if Hitbox((0,0),(self.width_factor,self.height_factor),self, 1, 1.45).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0

@@ -46,7 +46,7 @@ class FireWizard():
         self.max_stamina = 20
         self.stamina = self.max_stamina
         self.stamina_need = self.max_stamina
-        self.ability_damage = self.damage * 3
+        self.ability_damage = self.damage * 2
         self.ability_frames = 0
 
     def handle_keys(self, SCREEN, WIDTH, HEIGHT, target):
@@ -212,15 +212,15 @@ class FireWizard():
                         target.hit = 1.5
                         target.gravity_y = 0
 
-                        t = 1/60*12*6
+                        t = 1/60*14*6
 
                         time.sleep(t)
                         
 
                         if target.Name == "Knight" and target.using:
                             target.stamina -= self.ability_damage
-                            if target.max_stamina <= 0:
-                                target.health -= self.ability_damage * 1.5
+                            if target.stamina <= 0:
+                                target.health -= self.ability_damage * 0.2
                                 target.stamina = 0
                         else:
                             target.health -= self.ability_damage

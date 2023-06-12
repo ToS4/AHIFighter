@@ -222,8 +222,8 @@ class LightningMage():
 
                         if target.Name == "Knight" and target.using:
                             target.stamina -= self.ability_damage
-                            if target.max_stamina <= 0:
-                                target.health -= self.ability_damage * 1.5
+                            if target.stamina <= 0:
+                                target.health -= self.ability_damage * 0.2
                                 target.stamina = 0
                         else:
                             target.health -= self.ability_damage
