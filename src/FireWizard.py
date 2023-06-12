@@ -20,8 +20,8 @@ class FireWizard():
         self.max_health = 100
         self.health = self.max_health
 
-        self.speed = 6 * self.width_factor
-        self.jump_power = 22 * self.height_factor
+        self.speed = 7 * self.width_factor
+        self.jump_power = 20 * self.height_factor
 
         self.gravity_y = 0
         self.gravity_x = 0
