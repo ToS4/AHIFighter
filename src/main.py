@@ -32,9 +32,18 @@ with open("settings.txt") as file:
 CLOCK = pygame.time.Clock()
 FPS = 60
 
+bg1 = pygame.image.load("src/assets/imgs/Backgrounds/bulkhead-wallsx3.png")
+bg2 = pygame.image.load("src/assets/imgs/Backgrounds/country-platform.png")
+bg3 = pygame.image.load("src/assets/imgs/Backgrounds/NightForest.png")
+
+backgrounds = [bg1, bg2, bg3]
+current_bg = backgrounds[random.randint(0,2)]
+
 def select_character(name, player):
 
-    pos = (800 if player == 2 else 200,200) # (x, y)
+    y = 160
+
+    pos = (800 if player == 2 else 200,y) # (x, y)
     scale_factor = (scale_factor_width, scale_factor_height)    #  (width_factor, height_factor)
     character_hitbox_size = (60,120)    # (width_hitbox, height_hitbox)
     flip = True if player == 2 else False
@@ -84,13 +93,6 @@ healthbar_2 = HUD.Health_Bar(WIDTH-350, 20, 250, 40, scale_factor_width, scale_f
 stamina_bar1 = HUD.Stamina_Bar(100,60,180,20,scale_factor_width, scale_factor_height)
 stamina_bar2 = HUD.Stamina_Bar(WIDTH-280,60,180,20,scale_factor_width, scale_factor_height, True)
 
-bg1 = pygame.image.load("src/assets/imgs/Backgrounds/bulkhead-wallsx3.png")
-bg2 = pygame.image.load("src/assets/imgs/Backgrounds/country-platform.png")
-bg3 = pygame.image.load("src/assets/imgs/Backgrounds/NightForest.png")
-
-backgrounds = [bg1, bg2, bg3]
-current_bg = backgrounds[random.randint(0,2)]
-
 def game_loop():
     global player1, player2, current_bg
     running = True
@@ -119,7 +121,7 @@ def game_loop():
         player1.draw(SCREEN)
         player2.draw(SCREEN)
 
-        healthbar_1.draw(SCREEN, player1)
+        healthbar_1.draw(SCREEN, player1) 
         healthbar_2.draw(SCREEN, player2)
 
         stamina_bar1.draw(SCREEN,player1)
