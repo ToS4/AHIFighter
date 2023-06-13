@@ -168,46 +168,40 @@ def p1_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
 
     # all input boxes for the keybinds
     left_kb_text = Button(0,0,300,80,transparent,"Move Left","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    left_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
+    left_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
     left_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                        pygame.key.name(settings["player1"]["left"]))
-    left_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
+    left_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
 
     right_kb_text = Button(0,0,300,80,transparent,"Move Right","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    right_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2 - 100*scale_height_factor)
+    right_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 100*scale_height_factor)
     right_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                         pygame.key.name(settings["player1"]["right"]))
-    right_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2-100*scale_height_factor)
+    right_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-100*scale_height_factor)
 
     jump_kb_text = Button(0,0,300,80,transparent,"Jump","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    jump_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
+    jump_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
     jump_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                        pygame.key.name(settings["player1"]["jump"]))
-    jump_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
+    jump_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
 
     attack_kb_text = Button(0,0,300,80,transparent,"Attack","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    attack_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
+    attack_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
     attack_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                          pygame.key.name(settings["player1"]["attack"]))
-    attack_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
-
-    block_kb_text = Button(0,0,300,80,transparent,"Block","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    block_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
-    block_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
-                         pygame.key.name(settings["player1"]["block"]))
-    block_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
+    attack_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
 
     ability_kb_text = Button(0,0,300,80,transparent,"Ability","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    ability_kb_text.rect.center = (MAIN_WIDTH/2+ 120*scale_width_factor, MAIN_HEIGHT/2-175*scale_height_factor)
+    ability_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
     ability_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                          pygame.key.name(settings["player1"]["ability"]))
-    ability_kb.rect.center = (MAIN_WIDTH/2+240*scale_width_factor, MAIN_HEIGHT/2-175*scale_height_factor)
+    ability_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
 
     # list that contains all the input boxes
-    inputs = [left_kb, right_kb, jump_kb, attack_kb, block_kb, ability_kb]
+    inputs = [left_kb, right_kb, jump_kb, attack_kb, ability_kb]
 
     # list that contains the texts of these boxes
-    texts = [left_kb_text, right_kb_text, attack_kb_text, jump_kb_text, block_kb_text, ability_kb_text]
+    texts = [left_kb_text, right_kb_text, attack_kb_text, jump_kb_text, ability_kb_text]
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -219,7 +213,6 @@ def p1_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
             settings["player1"]["right"] = pygame.key.key_code(right_kb.handle_event(event))
             settings["player1"]["jump"] = pygame.key.key_code(jump_kb.handle_event(event))
             settings["player1"]["attack"] = pygame.key.key_code(attack_kb.handle_event(event))
-            settings["player1"]["block"] = pygame.key.key_code(block_kb.handle_event(event))
             settings["player1"]["ability"] = pygame.key.key_code(ability_kb.handle_event(event))
         
         mouse_position = pygame.mouse.get_pos()
@@ -251,46 +244,40 @@ def p2_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
 
     # all input boxes for the keybinds
     left_kb_text = Button(0,0,300,80,transparent,"Move Left","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    left_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
+    left_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
     left_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                        pygame.key.name(settings["player2"]["left"]))
-    left_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
+    left_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
 
     right_kb_text = Button(0,0,300,80,transparent,"Move Right","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    right_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2 - 100*scale_height_factor)
+    right_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 100*scale_height_factor)
     right_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                         pygame.key.name(settings["player2"]["right"]))
-    right_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2-100*scale_height_factor)
+    right_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-100*scale_height_factor)
 
     jump_kb_text = Button(0,0,300,80,transparent,"Jump","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    jump_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
+    jump_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
     jump_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                        pygame.key.name(settings["player2"]["jump"]))
-    jump_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
+    jump_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
 
     attack_kb_text = Button(0,0,300,80,transparent,"Attack","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    attack_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
+    attack_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
     attack_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                          pygame.key.name(settings["player2"]["attack"]))
-    attack_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
-
-    block_kb_text = Button(0,0,300,80,transparent,"Block","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    block_kb_text.rect.center = (MAIN_WIDTH/2-240*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
-    block_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
-                         pygame.key.name(settings["player2"]["block"]))
-    block_kb.rect.center = (MAIN_WIDTH/2+0*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
+    attack_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
 
     ability_kb_text = Button(0,0,300,80,transparent,"Ability","black", font_scaled,scale_width_factor, scale_height_factor, None)
-    ability_kb_text.rect.center = (MAIN_WIDTH/2+ 120*scale_width_factor, MAIN_HEIGHT/2-175*scale_height_factor)
+    ability_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
     ability_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
                          pygame.key.name(settings["player2"]["ability"]))
-    ability_kb.rect.center = (MAIN_WIDTH/2+240*scale_width_factor, MAIN_HEIGHT/2-175*scale_height_factor)
+    ability_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
 
     # list that contains all the input boxes
-    inputs = [left_kb, right_kb, jump_kb, attack_kb, block_kb, ability_kb]
+    inputs = [left_kb, right_kb, jump_kb, attack_kb, ability_kb]
 
     # list that contains the texts of these boxes
-    texts = [left_kb_text, right_kb_text, attack_kb_text, jump_kb_text, block_kb_text, ability_kb_text]
+    texts = [left_kb_text, right_kb_text, attack_kb_text, jump_kb_text, ability_kb_text]
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -302,7 +289,6 @@ def p2_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
             settings["player2"]["right"] = pygame.key.key_code(right_kb.handle_event(event))
             settings["player2"]["jump"] = pygame.key.key_code(jump_kb.handle_event(event))
             settings["player2"]["attack"] = pygame.key.key_code(attack_kb.handle_event(event))
-            settings["player2"]["block"] = pygame.key.key_code(block_kb.handle_event(event))
             settings["player2"]["ability"] = pygame.key.key_code(ability_kb.handle_event(event))
         
         mouse_position = pygame.mouse.get_pos()
@@ -331,26 +317,31 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
 
     # This will be the box for the knight selection
     knight_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Knight")
-    knight_box.rect.center = (MAIN_WIDTH/2-120*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
+    knight_box.rect.center = (MAIN_WIDTH/2-180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
     knight_img = pygame.image.load(os.path.join("src/assets/imgs/Knight/Icon.png")).convert_alpha()
     knight_img = pygame.transform.scale(knight_img, (99*scale_width_factor, 99*scale_height_factor))
     knight_select = False
 
     # This will be the box for the mage selection
-    wizard_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Wizard")
-    wizard_box.rect.center = (MAIN_WIDTH/2-0*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
+    wizard_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Lightning Mage")
+    wizard_box.rect.center = (MAIN_WIDTH/2-60*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
     wizard_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
     wizard_img = pygame.transform.scale(wizard_img, (99*scale_width_factor, 99*scale_height_factor))
     wizard_select = False
 
-    """
-    # This will be the box for Nathan selection
-    nathan_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "??")
-    nathan_box.rect.center = (MAIN_WIDTH/2+120*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
-    nathan_img = pygame.image.load(os.path.join("src/assets/imgs/BuckBorris/Icon.png")).convert_alpha()
-    nathan_img = pygame.transform.scale(nathan_img, (99*scale_width_factor, 99*scale_height_factor))
-    nathan_select = False
-    """
+    # This will be the box for the fire wizard selection
+    fire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Fire Wizard")
+    fire_box.rect.center = (MAIN_WIDTH/2+60*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
+    fire_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
+    fire_img = pygame.transform.scale(fire_img, (99*scale_width_factor, 99*scale_height_factor))
+    fire_select = False
+
+    # This will be the box for the vampire selection
+    vampire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Vampire Girl")
+    vampire_box.rect.center = (MAIN_WIDTH/2+180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
+    vampire_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
+    vampire_img = pygame.transform.scale(vampire_img, (99*scale_width_factor, 99*scale_height_factor))
+    vampire_select = False
 
     char = ""
     text = Button(0,0,300,80,(255,255,255,0),char,"black", font_scaled,scale_width_factor, scale_height_factor, None)
@@ -375,12 +366,15 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
                         wizard_box.select()
                         player += 1
                         wizard_select = True
-                    """
-                    elif nathan_box.rect.collidepoint(mouse_pos):
-                        nathan_box.select()
+                    elif fire_box.rect.collidepoint(mouse_pos):
+                        fire_box.select()
                         player += 1
-                        nathan_select = True
-                    """
+                        fire_select = True
+                    elif vampire_box.rect.collidepoint(mouse_pos):
+                        vampire_box.select()
+                        player += 1
+                        vampire_select = True
+
                 elif player == 2:
                     if knight_box.rect.collidepoint(mouse_pos) and not knight_select:
                         knight_box.select()
@@ -388,24 +382,25 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
                     elif wizard_box.rect.collidepoint(mouse_pos) and not wizard_select:
                         wizard_box.select()
                         player = "2"
-                    """
-                    elif nathan_box.rect.collidepoint(mouse_pos) and not nathan_select:
-                        nathan_box.select()
+                    elif fire_box.rect.collidepoint(mouse_pos) and not fire_select:
+                        fire_box.select()
                         player = "2"
-                    """
+                    elif vampire_box.rect.collidepoint(mouse_pos) and not vampire_select:
+                        vampire_box.select()
+                        player = "2"
                     
 
         if knight_box.rect.collidepoint(mouse_pos):
             char = knight_box.char
         elif wizard_box.rect.collidepoint(mouse_pos):
             char = wizard_box.char
+        elif fire_box.rect.collidepoint(mouse_pos):
+            char = fire_box.char
+        elif vampire_box.rect.collidepoint(mouse_pos):
+            char = vampire_box.char
         else:
             char = ""
 
-        """
-        elif nathan_box.rect.collidepoint(mouse_pos):
-            char = nathan_box.char
-        """
         
         text = Button(0,0,300,80,(255,255,255,0),char,"black", font_scaled,scale_width_factor, scale_height_factor, None)
         text.rect.width = 10
@@ -425,17 +420,14 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
         start_button.draw(SCREEN)
         knight_box.draw(SCREEN)
         wizard_box.draw(SCREEN)
-        """
-        nathan_box.draw(SCREEN)
-        """
+        fire_box.draw(SCREEN)
+        vampire_box.draw(SCREEN)
         text.draw(SCREEN)
 
         # this will blit the images into the boxes
         SCREEN.blit(knight_img, knight_box)
         SCREEN.blit(wizard_img, wizard_box)
-        """
-        SCREEN.blit(nathan_img, nathan_box)
-        """
+        
         
         pygame.display.update()
 

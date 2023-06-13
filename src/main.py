@@ -122,7 +122,7 @@ def select_character(name, player):
         return VampireGirl( pos, scale_factor, character_hitbox_size, flip, controls, animations)
 
 
-select_character_1 = "Knight"
+select_character_1 = "FireWizard"
 select_character_2 = "VampireGirl"
 
 player1 = select_character(select_character_1,1)
