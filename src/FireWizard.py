@@ -233,14 +233,14 @@ class FireWizard():
                 threading.Thread(target=check).start()
 
     def draw(self, SCREEN):
-        #pygame.draw.rect(SCREEN, (0,255,0), self.rect)
+        pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         img = pygame.transform.scale(pygame.transform.flip(self.image, self.flip, False), (self.width_hitbox*3.5*self.width_factor, self.height_hitbox*2*self.height_factor))
         img_rect = img.get_rect()
         if not self.flip:
             img_rect.bottomleft = self.rect.bottomleft
-            img_rect.x -= 25 * self.width_factor
+            img_rect.x -= 50 * self.width_factor
         else:
             img_rect.bottomright = self.rect.bottomright
-            img_rect.x += 25 * self.width_factor
+            img_rect.x += 50 * self.width_factor
         
         SCREEN.blit(img, img_rect)
