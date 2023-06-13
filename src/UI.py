@@ -316,9 +316,9 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     start_button.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 + 200 * scale_height_factor)
 
     # This will be the box for the knight selection
-    knight_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Knight")
+    knight_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Samurai")
     knight_box.rect.center = (MAIN_WIDTH/2-180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
-    knight_img = pygame.image.load(os.path.join("src/assets/imgs/Samurai/Hurt.png")).convert_alpha()
+    knight_img = pygame.image.load(os.path.join("src/assets/imgs/Samurai/Icon.png")).convert_alpha()
     knight_img = pygame.transform.scale(knight_img, (99*scale_width_factor, 99*scale_height_factor))
     knight_select = False
 
@@ -332,14 +332,14 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     # This will be the box for the fire wizard selection
     fire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Fire Wizard")
     fire_box.rect.center = (MAIN_WIDTH/2+60*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
-    fire_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
+    fire_img = pygame.image.load(os.path.join("src/assets/imgs/FireWizard/Icon.png")).convert_alpha()
     fire_img = pygame.transform.scale(fire_img, (99*scale_width_factor, 99*scale_height_factor))
     fire_select = False
 
     # This will be the box for the vampire selection
     vampire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Vampire Girl")
     vampire_box.rect.center = (MAIN_WIDTH/2+180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
-    vampire_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
+    vampire_img = pygame.image.load(os.path.join("src/assets/imgs/VampireGirl/Icon.png")).convert_alpha()
     vampire_img = pygame.transform.scale(vampire_img, (99*scale_width_factor, 99*scale_height_factor))
     vampire_select = False
 
@@ -427,6 +427,8 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
         # this will blit the images into the boxes
         SCREEN.blit(knight_img, knight_box)
         SCREEN.blit(wizard_img, wizard_box)
+        SCREEN.blit(fire_img, fire_box)
+        SCREEN.blit(vampire_img, vampire_box)
         
         
         pygame.display.update()
