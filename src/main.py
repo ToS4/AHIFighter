@@ -1,5 +1,5 @@
 import pygame, json, random, os
-from Knight import Knight
+from Samurai import Samurai
 from VampireGirl import VampireGirl
 from LightningMage import LightningMage
 from FireWizard import FireWizard
@@ -51,23 +51,23 @@ def select_character(name, player):
     flip = True if player == 2 else False
     controls = settings["player1"] if player == 1 else settings["player2"]
 
-    if name == "Knight":
+    if name == "Samurai":
 
         files = []
 
-        files.append((pygame.image.load("src/assets/imgs/Knight/Idle.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Run.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Jump.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Attack1.png").convert_alpha(),8))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Attack2.png").convert_alpha(),8))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Attack3.png").convert_alpha(),8))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Hurt.png").convert_alpha(),30))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Defend.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Knight/Dead.png").convert_alpha(),14))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Idle.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Run.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Jump.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack1.png").convert_alpha(),8))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack2.png").convert_alpha(),8))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack3.png").convert_alpha(),8))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Hurt.png").convert_alpha(),30))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Ability.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Dead.png").convert_alpha(),14))
 
         animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
             
-        return Knight( pos, scale_factor, character_hitbox_size, flip, controls, animations)
+        return Samurai( pos, scale_factor, character_hitbox_size, flip, controls, animations)
     
     elif name == "LightningMage":
 
@@ -122,7 +122,7 @@ def select_character(name, player):
         return VampireGirl( pos, scale_factor, character_hitbox_size, flip, controls, animations)
 
 
-select_character_1 = "FireWizard"
+select_character_1 = "LightningMage"
 select_character_2 = "VampireGirl"
 
 player1 = select_character(select_character_1,1)

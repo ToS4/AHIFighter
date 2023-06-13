@@ -2,11 +2,11 @@ import pygame, time,threading
 
 from HitboxController import Hitbox
 
-class Knight():
+class Samurai():
 
     def __init__(self, pos: tuple, scale_factor: tuple, character_hitbox_size: tuple, flip : bool, controls: dict, animations: list):
 
-        self.Name = "Knight"
+        self.Name = "Samurai"
         
         self.x, self.y = pos
         self.width_factor, self.height_factor = scale_factor

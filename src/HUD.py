@@ -1,6 +1,5 @@
 import pygame
 import sys
-from Knight import Knight
 
 class Health_Bar():
     def __init__(self, pos_x, pos_y, width, height, scale_width, scale_height, r = False):

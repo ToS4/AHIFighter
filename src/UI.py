@@ -318,7 +318,7 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     # This will be the box for the knight selection
     knight_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Knight")
     knight_box.rect.center = (MAIN_WIDTH/2-180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
-    knight_img = pygame.image.load(os.path.join("src/assets/imgs/Knight/Icon.png")).convert_alpha()
+    knight_img = pygame.image.load(os.path.join("src/assets/imgs/Samurai/Hurt.png")).convert_alpha()
     knight_img = pygame.transform.scale(knight_img, (99*scale_width_factor, 99*scale_height_factor))
     knight_select = False
 
