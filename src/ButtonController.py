@@ -1,5 +1,6 @@
 import pygame
 import pygame.gfxdraw
+
 class Button:
     def __init__(self, pos_x, pos_y, width, height, color, text, text_color, font, scale_width, scale_height, action = None):
         self.color = color

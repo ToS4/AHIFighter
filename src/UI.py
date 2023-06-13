@@ -3,6 +3,11 @@ import json
 import sys
 import os
 from ButtonController import Button, InputBox, CharacterBox
+from Samurai import Samurai
+from VampireGirl import VampireGirl
+from LightningMage import LightningMage
+from FireWizard import FireWizard
+from AnimationController import Animation
 
 pygame.init()
 
@@ -22,6 +27,89 @@ transparent = pygame.Color(255,255,255,a=255)
 
 # variable to reset the game
 reset = False
+
+select_p1 = None
+select_p2 = None
+
+def select_character(name, player,settings):
+
+    y = 160
+
+    pos = (800 if player == 2 else 200,y) # (x, y)
+    scale_factor = (MAIN_WIDTH / WIDTH, MAIN_HEIGHT / HEIGHT)    #  (width_factor, height_factor)
+    character_hitbox_size = (60,120)    # (width_hitbox, height_hitbox)
+    flip = True if player == 2 else False
+    controls = settings["player1"] if player == 1 else settings["player2"]
+
+    if name == "Samurai":
+
+        files = []
+
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Idle.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Run.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Jump.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack1.png").convert_alpha(),8))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack2.png").convert_alpha(),8))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack3.png").convert_alpha(),8))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Hurt.png").convert_alpha(),30))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Ability.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/Samurai/Dead.png").convert_alpha(),14))
+
+        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
+            
+        return Samurai( pos, scale_factor, character_hitbox_size, flip, controls, animations)
+    
+    elif name == "LightningMage":
+
+        files = []
+
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Idle.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Run.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Jump.png").convert_alpha(),7))
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Hurt.png").convert_alpha(),30))
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Dead.png").convert_alpha(),14))
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Ability.png").convert_alpha(),6))
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Attack1.png").convert_alpha(),5))
+        files.append((pygame.image.load("src/assets/imgs/LightningMage/Attack2.png").convert_alpha(),10))
+
+        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
+            
+        return LightningMage( pos, scale_factor, character_hitbox_size, flip, controls, animations)
+
+    elif name == "FireWizard":
+
+        files = []
+
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Idle.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Run.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Jump.png").convert_alpha(),7))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Hurt.png").convert_alpha(),30))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Dead.png").convert_alpha(),14))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Ability.png").convert_alpha(),6))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Attack1.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/FireWizard/Attack2.png").convert_alpha(),10))
+
+        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
+            
+        return FireWizard( pos, scale_factor, character_hitbox_size, flip, controls, animations)
+
+    elif name == "VampireGirl":
+
+        files = []
+
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Idle.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Run.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Jump.png").convert_alpha(),7))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Hurt.png").convert_alpha(),30))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Dead.png").convert_alpha(),14))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Ability.png").convert_alpha(),8))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Attack1.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Attack2.png").convert_alpha(),10))
+        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Attack3.png").convert_alpha(),10))
+
+        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
+            
+        return VampireGirl( pos, scale_factor, character_hitbox_size, flip, controls, animations)
 
 def main_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     global reset
@@ -309,25 +397,23 @@ def p2_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
         pygame.display.update()
 
 def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
+    global select_p1, select_p2
     
     player = 1
 
-    start_button = Button(0,0,250,80,"black","START","white",font_scaled,scale_width_factor, scale_height_factor,dest_gameloop)
-    start_button.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 + 200 * scale_height_factor)
-
-    # This will be the box for the knight selection
-    knight_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Samurai")
-    knight_box.rect.center = (MAIN_WIDTH/2-180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
-    knight_img = pygame.image.load(os.path.join("src/assets/imgs/Samurai/Icon.png")).convert_alpha()
-    knight_img = pygame.transform.scale(knight_img, (99*scale_width_factor, 99*scale_height_factor))
-    knight_select = False
+    # This will be the box for the samurai selection
+    samurai_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Samurai")
+    samurai_box.rect.center = (MAIN_WIDTH/2-180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
+    samurai_img = pygame.image.load(os.path.join("src/assets/imgs/Samurai/Icon.png")).convert_alpha()
+    samurai_img = pygame.transform.scale(samurai_img, (99*scale_width_factor, 99*scale_height_factor))
+    samurai_select = False
 
     # This will be the box for the mage selection
-    wizard_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Lightning Mage")
-    wizard_box.rect.center = (MAIN_WIDTH/2-60*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
-    wizard_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
-    wizard_img = pygame.transform.scale(wizard_img, (99*scale_width_factor, 99*scale_height_factor))
-    wizard_select = False
+    mage_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Lightning Mage")
+    mage_box.rect.center = (MAIN_WIDTH/2-60*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
+    mage_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
+    mage_img = pygame.transform.scale(mage_img, (99*scale_width_factor, 99*scale_height_factor))
+    mage_select = False
 
     # This will be the box for the fire wizard selection
     fire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Fire Wizard")
@@ -350,6 +436,16 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     text.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 - 40*scale_height_factor)
 
     while True:
+        if player == "2":
+            start_button = Button(0,0,250,80,"black","START","white",font_scaled,scale_width_factor, scale_height_factor, lambda: dest_gameloop(player1, player2))
+            start_button.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 + 200 * scale_height_factor)
+        else:
+            start_button = Button(0,0,250,80,"black","START","white",font_scaled,scale_width_factor, scale_height_factor, lambda: None)
+            start_button.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 + 200 * scale_height_factor)
+
+        player1 = select_character(select_p1,1, settings)
+        player2 = select_character(select_p2,2, settings)
+        print(player1)
         mouse_pos = pygame.mouse.get_pos()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -358,42 +454,50 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 start_button.handle_event(event)
                 if player == 1:
-                    if knight_box.rect.collidepoint(mouse_pos):
-                        knight_box.select()
+                    if samurai_box.rect.collidepoint(mouse_pos):
+                        samurai_box.select()
                         player += 1
-                        knight_select = True
-                    elif wizard_box.rect.collidepoint(mouse_pos):
-                        wizard_box.select()
+                        select_p1 = "Samurai"
+                        samurai_select = True
+                    elif mage_box.rect.collidepoint(mouse_pos):
+                        mage_box.select()
                         player += 1
-                        wizard_select = True
+                        select_p1 = "LightningMage"
+                        mage_select = True
                     elif fire_box.rect.collidepoint(mouse_pos):
                         fire_box.select()
                         player += 1
+                        select_p1 = "FireWizard"
                         fire_select = True
                     elif vampire_box.rect.collidepoint(mouse_pos):
                         vampire_box.select()
                         player += 1
+                        select_p1 = "VampireGirl"
                         vampire_select = True
 
                 elif player == 2:
-                    if knight_box.rect.collidepoint(mouse_pos) and not knight_select:
-                        knight_box.select()
+                    if samurai_box.rect.collidepoint(mouse_pos) and not samurai_select:
+                        samurai_box.select()
+                        select_p2 = "Samurai"
                         player = "2"
-                    elif wizard_box.rect.collidepoint(mouse_pos) and not wizard_select:
-                        wizard_box.select()
+                    elif mage_box.rect.collidepoint(mouse_pos) and not mage_select:
+                        mage_box.select()
+                        select_p2 = "LightningMage"
                         player = "2"
                     elif fire_box.rect.collidepoint(mouse_pos) and not fire_select:
                         fire_box.select()
+                        select_p2 = "FireWizard"
                         player = "2"
                     elif vampire_box.rect.collidepoint(mouse_pos) and not vampire_select:
                         vampire_box.select()
+                        select_p2 = "VampireGirl"
                         player = "2"
                     
 
-        if knight_box.rect.collidepoint(mouse_pos):
-            char = knight_box.char
-        elif wizard_box.rect.collidepoint(mouse_pos):
-            char = wizard_box.char
+        if samurai_box.rect.collidepoint(mouse_pos):
+            char = samurai_box.char
+        elif mage_box.rect.collidepoint(mouse_pos):
+            char = mage_box.char
         elif fire_box.rect.collidepoint(mouse_pos):
             char = fire_box.char
         elif vampire_box.rect.collidepoint(mouse_pos):
@@ -418,15 +522,15 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
 
         selecting_text.draw(SCREEN)
         start_button.draw(SCREEN)
-        knight_box.draw(SCREEN)
-        wizard_box.draw(SCREEN)
+        samurai_box.draw(SCREEN)
+        mage_box.draw(SCREEN)
         fire_box.draw(SCREEN)
         vampire_box.draw(SCREEN)
         text.draw(SCREEN)
 
         # this will blit the images into the boxes
-        SCREEN.blit(knight_img, knight_box)
-        SCREEN.blit(wizard_img, wizard_box)
+        SCREEN.blit(samurai_img, samurai_box)
+        SCREEN.blit(mage_img, mage_box)
         SCREEN.blit(fire_img, fire_box)
         SCREEN.blit(vampire_img, vampire_box)
         
@@ -467,6 +571,3 @@ def gameover_menu(scale_width_factor, scale_height_factor, dest_gameloop, settin
 
         pygame.display.update()
 
-#asdf
-if __name__ == "__main__":
-    play_menu(MAIN_WIDTH/WIDTH, MAIN_HEIGHT/HEIGHT, None, None, "Player 1")

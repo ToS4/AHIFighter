@@ -1,11 +1,6 @@
 import pygame, json, random, os
-from Samurai import Samurai
-from VampireGirl import VampireGirl
-from LightningMage import LightningMage
-from FireWizard import FireWizard
-from AnimationController import Animation
-import UI as UI
-import HUD as HUD
+import UI
+import HUD
 
 pygame.init()
 
@@ -41,101 +36,14 @@ bg3 = pygame.image.load("src/assets/imgs/Backgrounds/NightForest.png")
 backgrounds = [bg1, bg2, bg3]
 current_bg = backgrounds[random.randint(0,2)]
 
-def select_character(name, player):
-
-    y = 160
-
-    pos = (800 if player == 2 else 200,y) # (x, y)
-    scale_factor = (scale_factor_width, scale_factor_height)    #  (width_factor, height_factor)
-    character_hitbox_size = (60,120)    # (width_hitbox, height_hitbox)
-    flip = True if player == 2 else False
-    controls = settings["player1"] if player == 1 else settings["player2"]
-
-    if name == "Samurai":
-
-        files = []
-
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Idle.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Run.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Jump.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack1.png").convert_alpha(),8))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack2.png").convert_alpha(),8))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Attack3.png").convert_alpha(),8))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Hurt.png").convert_alpha(),30))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Ability.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/Samurai/Dead.png").convert_alpha(),14))
-
-        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
-            
-        return Samurai( pos, scale_factor, character_hitbox_size, flip, controls, animations)
-    
-    elif name == "LightningMage":
-
-        files = []
-
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Idle.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Run.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Jump.png").convert_alpha(),7))
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Hurt.png").convert_alpha(),30))
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Dead.png").convert_alpha(),14))
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Ability.png").convert_alpha(),6))
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Attack1.png").convert_alpha(),5))
-        files.append((pygame.image.load("src/assets/imgs/LightningMage/Attack2.png").convert_alpha(),10))
-
-        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
-            
-        return LightningMage( pos, scale_factor, character_hitbox_size, flip, controls, animations)
-
-    elif name == "FireWizard":
-
-        files = []
-
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Idle.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Run.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Jump.png").convert_alpha(),7))
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Hurt.png").convert_alpha(),30))
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Dead.png").convert_alpha(),14))
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Ability.png").convert_alpha(),6))
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Attack1.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/FireWizard/Attack2.png").convert_alpha(),10))
-
-        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
-            
-        return FireWizard( pos, scale_factor, character_hitbox_size, flip, controls, animations)
-
-    elif name == "VampireGirl":
-
-        files = []
-
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Idle.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Run.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Jump.png").convert_alpha(),7))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Hurt.png").convert_alpha(),30))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Dead.png").convert_alpha(),14))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Ability.png").convert_alpha(),8))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Attack1.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Attack2.png").convert_alpha(),10))
-        files.append((pygame.image.load("src/assets/imgs/VampireGirl/Attack3.png").convert_alpha(),10))
-
-        animations = [Animation(animation[0], 128, 128, animation[1]) for animation in files]
-            
-        return VampireGirl( pos, scale_factor, character_hitbox_size, flip, controls, animations)
-
-
-select_character_1 = "FireWizard"
-select_character_2 = "VampireGirl"
-
-player1 = select_character(select_character_1,1)
-player2 = select_character(select_character_2,2)
-
 healthbar_1 = HUD.Health_Bar(100 ,20, 250, 40, scale_factor_width, scale_factor_height)
 healthbar_2 = HUD.Health_Bar(WIDTH-350, 20, 250, 40, scale_factor_width, scale_factor_height, True)
 
 stamina_bar1 = HUD.Stamina_Bar(100,60,180,20,scale_factor_width, scale_factor_height)
 stamina_bar2 = HUD.Stamina_Bar(WIDTH-280,60,180,20,scale_factor_width, scale_factor_height, True)
 
-def game_loop():
-    global player1, player2, current_bg
+def game_loop(player1, player2):
+    global current_bg
     running = True
     current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
     
@@ -169,22 +77,22 @@ def game_loop():
         stamina_bar2.draw(SCREEN,player2)
 
         if player1.health <= 0:
-            player1 = select_character(select_character_1,1)
-            player2 = select_character(select_character_2,2)
+            player1 = UI.select_character(UI.select_p1,1, settings)
+            player2 = UI.select_character(UI.select_p2,2, settings)
             #current_bg = backgrounds[random.randint(0,2)]
             UI.gameover_menu(scale_factor_width, scale_factor_height, game_loop, settings, "Player 2")
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
         elif player2.health <= 0:
-            player1 = select_character(select_character_1,1)
-            player2 = select_character(select_character_2,2)
+            player1 = UI.select_character(UI.select_p1,1, settings)
+            player2 = UI.select_character(UI.select_p2,2, settings)
             #current_bg = backgrounds[random.randint(0,2)]
             UI.gameover_menu(scale_factor_width, scale_factor_height, game_loop, settings, "Player 1")
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
         if reset:
-            player1 = select_character(select_character_1,1)
-            player2 = select_character(select_character_2,2)
+            player1 = UI.select_character(UI.select_p1,1, settings)
+            player2 = UI.select_character(UI.select_p2,2, settings)
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
             reset = not reset
