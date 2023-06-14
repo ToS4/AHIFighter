@@ -1,0 +1,113 @@
+\hypertarget{class_button_controller_1_1_button}{}\doxysection{Button\+Controller.\+Button Class Reference}
+\label{class_button_controller_1_1_button}\index{ButtonController.Button@{ButtonController.Button}}
+
+
+The Button class.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_button_controller_1_1_button_a7de46ef2d1d163fb4a51833a7312047e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, pos\+\_\+x, pos\+\_\+y, width, height, color, text, text\+\_\+color, font, scale\+\_\+width, scale\+\_\+height, action=None)
+\begin{DoxyCompactList}\small\item\em Initializer for the Button class. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_button_controller_1_1_button_ac85d523ec84e274dbeaa9e82f2b357d5}{draw}} (self, screen)
+\begin{DoxyCompactList}\small\item\em Responsible for drawing the Button. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_button_controller_1_1_button_a32011c7910e97bf7cb6a676ee6b39100}{handle\+\_\+event}} (self, event)
+\begin{DoxyCompactList}\small\item\em Responsible for the action, when the button is pressed. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_button_controller_1_1_button_a33a2fe3c282958011d33ed5a64311d27}{hover\+\_\+effect}} (self, mouse\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Makes the button different when it is hovered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_button_ae165b5b55de4e8d1a3537effcaccae37}\label{class_button_controller_1_1_button_ae165b5b55de4e8d1a3537effcaccae37}} 
+{\bfseries color}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_button_a66eb0fac52fb2c5d6941c90a11f9a287}\label{class_button_controller_1_1_button_a66eb0fac52fb2c5d6941c90a11f9a287}} 
+{\bfseries text}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_button_ad9d3a121ef45062cd1e4153490d3b584}\label{class_button_controller_1_1_button_ad9d3a121ef45062cd1e4153490d3b584}} 
+{\bfseries text\+\_\+color}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_button_a82fe98386d32050d193571bdac5cf538}\label{class_button_controller_1_1_button_a82fe98386d32050d193571bdac5cf538}} 
+{\bfseries font}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_button_a7469b160494e1df310582e16aa6762ed}\label{class_button_controller_1_1_button_a7469b160494e1df310582e16aa6762ed}} 
+{\bfseries action}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_button_a6b58488492804e18f0764a3c52dd13d4}\label{class_button_controller_1_1_button_a6b58488492804e18f0764a3c52dd13d4}} 
+{\bfseries rect}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Button class. 
+
+Creates a Button that has a hover effect and can do an action if it is clicked 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_button_controller_1_1_button_a7de46ef2d1d163fb4a51833a7312047e}\label{class_button_controller_1_1_button_a7de46ef2d1d163fb4a51833a7312047e}} 
+\index{ButtonController.Button@{ButtonController.Button}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ButtonController.Button@{ButtonController.Button}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Button\+Controller.\+Button.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos\+\_\+x,  }\item[{}]{pos\+\_\+y,  }\item[{}]{width,  }\item[{}]{height,  }\item[{}]{color,  }\item[{}]{text,  }\item[{}]{text\+\_\+color,  }\item[{}]{font,  }\item[{}]{scale\+\_\+width,  }\item[{}]{scale\+\_\+height,  }\item[{}]{action = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Initializer for the Button class. 
+
+\begin{DoxyVerb}   @param pos_x    Position on the x axis
+   @param pos_y    Position on the y axis
+   @param width    Width of the button
+   @param height   Height of the button
+   @param color    Color of the button
+   @param text     Text that is centered in the button
+   @param text_color   Color of the displayed text
+   @param font     Size and font of the text
+   @param scale_width  Scale factor for the width
+   @param scale_height Scale factor for the height
+   @param action   What happens when the button is clicked
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_button_controller_1_1_button_ac85d523ec84e274dbeaa9e82f2b357d5}\label{class_button_controller_1_1_button_ac85d523ec84e274dbeaa9e82f2b357d5}} 
+\index{ButtonController.Button@{ButtonController.Button}!draw@{draw}}
+\index{draw@{draw}!ButtonController.Button@{ButtonController.Button}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily def Button\+Controller.\+Button.\+draw (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{screen }\end{DoxyParamCaption})}
+
+
+
+Responsible for drawing the Button. 
+
+\begin{DoxyVerb}   @param screen   The screen which will be drawn on
+\end{DoxyVerb}
+ \mbox{\Hypertarget{class_button_controller_1_1_button_a32011c7910e97bf7cb6a676ee6b39100}\label{class_button_controller_1_1_button_a32011c7910e97bf7cb6a676ee6b39100}} 
+\index{ButtonController.Button@{ButtonController.Button}!handle\_event@{handle\_event}}
+\index{handle\_event@{handle\_event}!ButtonController.Button@{ButtonController.Button}}
+\doxysubsubsection{\texorpdfstring{handle\_event()}{handle\_event()}}
+{\footnotesize\ttfamily def Button\+Controller.\+Button.\+handle\+\_\+event (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Responsible for the action, when the button is pressed. 
+
+\begin{DoxyVerb}   @param event    Keycode from Pygame
+\end{DoxyVerb}
+ \mbox{\Hypertarget{class_button_controller_1_1_button_a33a2fe3c282958011d33ed5a64311d27}\label{class_button_controller_1_1_button_a33a2fe3c282958011d33ed5a64311d27}} 
+\index{ButtonController.Button@{ButtonController.Button}!hover\_effect@{hover\_effect}}
+\index{hover\_effect@{hover\_effect}!ButtonController.Button@{ButtonController.Button}}
+\doxysubsubsection{\texorpdfstring{hover\_effect()}{hover\_effect()}}
+{\footnotesize\ttfamily def Button\+Controller.\+Button.\+hover\+\_\+effect (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{mouse\+\_\+pos }\end{DoxyParamCaption})}
+
+
+
+Makes the button different when it is hovered. 
+
+\begin{DoxyVerb}   @param mouse_pos    Position of the mouse
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_button_controller_8py}{Button\+Controller.\+py}}\end{DoxyCompactItemize}

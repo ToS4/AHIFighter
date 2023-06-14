@@ -5,10 +5,11 @@
 # @section description_main Description
 # A School Project using Python and the module PyGame
 #
-#
+
+##
 # @file main.py
 #
-# @brief Main
+# @brief Main 
 #
 #
 # @section libraries_main Libraries/Modules

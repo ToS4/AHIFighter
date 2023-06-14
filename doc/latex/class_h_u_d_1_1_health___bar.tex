@@ -1,0 +1,87 @@
+\hypertarget{class_h_u_d_1_1_health___bar}{}\doxysection{HUD.\+Health\+\_\+\+Bar Class Reference}
+\label{class_h_u_d_1_1_health___bar}\index{HUD.Health\_Bar@{HUD.Health\_Bar}}
+
+
+The Healthbar class.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_h_u_d_1_1_health___bar_ab58792c48a630f697f8cc47df3919bba}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, pos\+\_\+x, pos\+\_\+y, width, height, scale\+\_\+width, scale\+\_\+height, r=False)
+\begin{DoxyCompactList}\small\item\em Initializer for the Health\+\_\+\+Bar class. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_h_u_d_1_1_health___bar_a7722e92cef6bdca92f9f36f1c1a26484}{draw}} (self, screen, player)
+\begin{DoxyCompactList}\small\item\em Responsible for drawing the health\+\_\+bar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_a656aa9fe2883303bf0a7c3e636993695}\label{class_h_u_d_1_1_health___bar_a656aa9fe2883303bf0a7c3e636993695}} 
+{\bfseries x}
+\item 
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_aa9dfece6b0874b549f7ae6fe5b7953d2}\label{class_h_u_d_1_1_health___bar_aa9dfece6b0874b549f7ae6fe5b7953d2}} 
+{\bfseries y}
+\item 
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_a2f2f32a757c8167ecf4a1371f0113bdc}\label{class_h_u_d_1_1_health___bar_a2f2f32a757c8167ecf4a1371f0113bdc}} 
+{\bfseries width}
+\item 
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_ac62a0e9be6a7b915e11f5bc22c455751}\label{class_h_u_d_1_1_health___bar_ac62a0e9be6a7b915e11f5bc22c455751}} 
+{\bfseries height}
+\item 
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_a04a9d4e138ee5d5b1fc42e62b7db1e13}\label{class_h_u_d_1_1_health___bar_a04a9d4e138ee5d5b1fc42e62b7db1e13}} 
+{\bfseries scale\+\_\+w}
+\item 
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_a30cfbe1b937fd589d45d096bea33e3ed}\label{class_h_u_d_1_1_health___bar_a30cfbe1b937fd589d45d096bea33e3ed}} 
+{\bfseries scale\+\_\+h}
+\item 
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_a47ff333bda4e3b4735e60fbc363282b4}\label{class_h_u_d_1_1_health___bar_a47ff333bda4e3b4735e60fbc363282b4}} 
+{\bfseries reversed}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Healthbar class. 
+
+Defines the players health bars which are dependant on the characters health 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_ab58792c48a630f697f8cc47df3919bba}\label{class_h_u_d_1_1_health___bar_ab58792c48a630f697f8cc47df3919bba}} 
+\index{HUD.Health\_Bar@{HUD.Health\_Bar}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!HUD.Health\_Bar@{HUD.Health\_Bar}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def HUD.\+Health\+\_\+\+Bar.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos\+\_\+x,  }\item[{}]{pos\+\_\+y,  }\item[{}]{width,  }\item[{}]{height,  }\item[{}]{scale\+\_\+width,  }\item[{}]{scale\+\_\+height,  }\item[{}]{r = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Initializer for the Health\+\_\+\+Bar class. 
+
+\begin{DoxyVerb}   @param pos_x    Position on the x axis
+   @param pos_y    Position on the y axis
+   @param width    Width of the health bar
+   @param height   height of the health bar
+   @param scale_width  scale factor for the width
+   @param scale_height scale factor for the height
+   @param r        checks if the bar should be flipped
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_h_u_d_1_1_health___bar_a7722e92cef6bdca92f9f36f1c1a26484}\label{class_h_u_d_1_1_health___bar_a7722e92cef6bdca92f9f36f1c1a26484}} 
+\index{HUD.Health\_Bar@{HUD.Health\_Bar}!draw@{draw}}
+\index{draw@{draw}!HUD.Health\_Bar@{HUD.Health\_Bar}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily def HUD.\+Health\+\_\+\+Bar.\+draw (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{screen,  }\item[{}]{player }\end{DoxyParamCaption})}
+
+
+
+Responsible for drawing the health\+\_\+bar. 
+
+\begin{DoxyVerb}   Draws 3 Rectangles: one for the outline, one for the red background and one for the green part
+
+   @param screen   The screen which will be drawn on
+   @param player   Which player is the health bar for
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_h_u_d_8py}{HUD.\+py}}\end{DoxyCompactItemize}

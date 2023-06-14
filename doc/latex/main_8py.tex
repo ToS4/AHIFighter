@@ -1,0 +1,114 @@
+\hypertarget{main_8py}{}\doxysection{src/main.py File Reference}
+\label{main_8py}\index{src/main.py@{src/main.py}}
+
+
+Main.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{main_8py_a97067c5f6a8b6738bc0b1c6839992906}{main.\+game\+\_\+loop}} (player1, player2)
+\begin{DoxyCompactList}\small\item\em Game Loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8py_acdaceeb740e42866fdf8d7eb93353d16}\label{main_8py_acdaceeb740e42866fdf8d7eb93353d16}} 
+int {\bfseries main.\+WIDTH} = 1000
+\item 
+\mbox{\Hypertarget{main_8py_adbbf73cd3f8a72855871281d86f9e121}\label{main_8py_adbbf73cd3f8a72855871281d86f9e121}} 
+int {\bfseries main.\+HEIGHT} = 600
+\item 
+\mbox{\Hypertarget{main_8py_a24bf2be4f7dde0e278bd676e00e9004d}\label{main_8py_a24bf2be4f7dde0e278bd676e00e9004d}} 
+pygame {\bfseries main.\+SCREEN} = pygame.\+display.\+set\+\_\+mode((0,0), pygame.\+FULLSCREEN)
+\item 
+\mbox{\Hypertarget{main_8py_aeb100a90235d493a0951b70346b6a61e}\label{main_8py_aeb100a90235d493a0951b70346b6a61e}} 
+pygame {\bfseries main.\+MAIN\+\_\+\+WIDTH} = SCREEN.\+get\+\_\+width()
+\item 
+\mbox{\Hypertarget{main_8py_a3e22dc476bde67a0a8e6b1a1d6fb50a1}\label{main_8py_a3e22dc476bde67a0a8e6b1a1d6fb50a1}} 
+pygame {\bfseries main.\+MAIN\+\_\+\+HEIGHT} = SCREEN.\+get\+\_\+height()
+\item 
+\mbox{\Hypertarget{main_8py_a46ee13c408be503e35247abd066b0a00}\label{main_8py_a46ee13c408be503e35247abd066b0a00}} 
+pygame {\bfseries main.\+scale\+\_\+factor\+\_\+width} = MAIN\+\_\+\+WIDTH / WIDTH
+\item 
+\mbox{\Hypertarget{main_8py_a85cc81db512d58aee59229ce8e62745b}\label{main_8py_a85cc81db512d58aee59229ce8e62745b}} 
+pygame {\bfseries main.\+scale\+\_\+factor\+\_\+height} = MAIN\+\_\+\+HEIGHT / HEIGHT
+\item 
+\mbox{\Hypertarget{main_8py_ad6f17a815364096f25b16078f63fecec}\label{main_8py_ad6f17a815364096f25b16078f63fecec}} 
+None {\bfseries main.\+settings} = None
+\item 
+\mbox{\Hypertarget{main_8py_a0e1b0648251b1239d158686e8af769ff}\label{main_8py_a0e1b0648251b1239d158686e8af769ff}} 
+pygame {\bfseries main.\+CLOCK} = pygame.\+time.\+Clock()
+\item 
+\mbox{\Hypertarget{main_8py_adf4f7605d0b39d8d6976e060a3ae816b}\label{main_8py_adf4f7605d0b39d8d6976e060a3ae816b}} 
+int {\bfseries main.\+FPS} = 60
+\item 
+\mbox{\Hypertarget{main_8py_a6b1026668ba48aa4489608530518f51c}\label{main_8py_a6b1026668ba48aa4489608530518f51c}} 
+pygame {\bfseries main.\+bg1} = pygame.\+image.\+load(\char`\"{}src/assets/imgs/Backgrounds/bulkhead-\/wallsx3.\+png\char`\"{})
+\item 
+\mbox{\Hypertarget{main_8py_a257bc682a2a7331721bec63ba43c3258}\label{main_8py_a257bc682a2a7331721bec63ba43c3258}} 
+pygame {\bfseries main.\+bg2} = pygame.\+image.\+load(\char`\"{}src/assets/imgs/Backgrounds/country-\/platform.\+png\char`\"{})
+\item 
+\mbox{\Hypertarget{main_8py_acb341e6a4424c218bbaa1e5f00df8243}\label{main_8py_acb341e6a4424c218bbaa1e5f00df8243}} 
+pygame {\bfseries main.\+bg3} = pygame.\+image.\+load(\char`\"{}src/assets/imgs/Backgrounds/Night\+Forest.\+png\char`\"{})
+\item 
+\mbox{\Hypertarget{main_8py_a080a73273296c2d83f181d60654cfb93}\label{main_8py_a080a73273296c2d83f181d60654cfb93}} 
+list {\bfseries main.\+backgrounds} = \mbox{[}bg1, bg2, bg3\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8py_aa304b4b60b068c1be9a83324c1e1e6e8}\label{main_8py_aa304b4b60b068c1be9a83324c1e1e6e8}} 
+list {\bfseries main.\+current\+\_\+bg} = backgrounds\mbox{[}random.\+randint(0,2)\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8py_a1f966339e421cf888dab05e391dba9bf}\label{main_8py_a1f966339e421cf888dab05e391dba9bf}} 
+HUD {\bfseries main.\+healthbar\+\_\+1} = \mbox{\hyperlink{class_h_u_d_1_1_health___bar}{HUD.\+Health\+\_\+\+Bar}}(100 ,20, 250, 40, scale\+\_\+factor\+\_\+width, scale\+\_\+factor\+\_\+height)
+\item 
+\mbox{\Hypertarget{main_8py_aece5d05e62edf8a3c20d99cd4240b36d}\label{main_8py_aece5d05e62edf8a3c20d99cd4240b36d}} 
+HUD {\bfseries main.\+healthbar\+\_\+2} = \mbox{\hyperlink{class_h_u_d_1_1_health___bar}{HUD.\+Health\+\_\+\+Bar}}(WIDTH-\/350, 20, 250, 40, scale\+\_\+factor\+\_\+width, scale\+\_\+factor\+\_\+height, True)
+\item 
+\mbox{\Hypertarget{main_8py_a9dd43fe319b011677f4d34c034cc3420}\label{main_8py_a9dd43fe319b011677f4d34c034cc3420}} 
+HUD {\bfseries main.\+stamina\+\_\+bar1} = \mbox{\hyperlink{class_h_u_d_1_1_stamina___bar}{HUD.\+Stamina\+\_\+\+Bar}}(100,59,180,20,scale\+\_\+factor\+\_\+width, scale\+\_\+factor\+\_\+height)
+\item 
+\mbox{\Hypertarget{main_8py_a177903111196a5620f10b97ae5e02edb}\label{main_8py_a177903111196a5620f10b97ae5e02edb}} 
+HUD {\bfseries main.\+stamina\+\_\+bar2} = \mbox{\hyperlink{class_h_u_d_1_1_stamina___bar}{HUD.\+Stamina\+\_\+\+Bar}}(WIDTH-\/280,59,180,20,scale\+\_\+factor\+\_\+width, scale\+\_\+factor\+\_\+height, True)
+\item 
+\mbox{\Hypertarget{main_8py_a4989f9e2e562c89564ffb38c181f0cb6}\label{main_8py_a4989f9e2e562c89564ffb38c181f0cb6}} 
+HUD {\bfseries main.\+icon\+\_\+1} = \mbox{\hyperlink{class_h_u_d_1_1_character___icon}{HUD.\+Character\+\_\+\+Icon}}(0,0,100,100,scale\+\_\+factor\+\_\+width, scale\+\_\+factor\+\_\+height)
+\item 
+\mbox{\Hypertarget{main_8py_a1eca7b9fc2322c32d3e8d64447c13c85}\label{main_8py_a1eca7b9fc2322c32d3e8d64447c13c85}} 
+HUD {\bfseries main.\+icon\+\_\+2} = \mbox{\hyperlink{class_h_u_d_1_1_character___icon}{HUD.\+Character\+\_\+\+Icon}}(WIDTH-\/100,0,100,100,scale\+\_\+factor\+\_\+width, scale\+\_\+factor\+\_\+height)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main. 
+
+\hypertarget{main_8py_libraries_main}{}\doxysubsection{Libraries/\+Modules}\label{main_8py_libraries_main}
+
+\begin{DoxyItemize}
+\item pygame
+\item json
+\item random
+\item os
+\item UI (local)
+\item HUD (local)
+\end{DoxyItemize}\hypertarget{main_8py_author_doxygen_example}{}\doxysubsection{Author(s)}\label{main_8py_author_doxygen_example}
+
+\begin{DoxyItemize}
+\item Created by To\+S4
+\item Modified by mirko4001 \& To\+S4 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8py_a97067c5f6a8b6738bc0b1c6839992906}\label{main_8py_a97067c5f6a8b6738bc0b1c6839992906}} 
+\index{main.py@{main.py}!game\_loop@{game\_loop}}
+\index{game\_loop@{game\_loop}!main.py@{main.py}}
+\doxysubsubsection{\texorpdfstring{game\_loop()}{game\_loop()}}
+{\footnotesize\ttfamily def main.\+game\+\_\+loop (\begin{DoxyParamCaption}\item[{}]{player1,  }\item[{}]{player2 }\end{DoxyParamCaption})}
+
+
+
+Game Loop. 
+
+\begin{DoxyVerb}       @param player1 a class of the selected character 
+       @param player2 a class of the selected character 
+\end{DoxyVerb}
+ 

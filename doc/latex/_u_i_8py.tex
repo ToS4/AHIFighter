@@ -1,0 +1,292 @@
+\hypertarget{_u_i_8py}{}\doxysection{src/\+UI.py File Reference}
+\label{_u_i_8py}\index{src/UI.py@{src/UI.py}}
+
+
+Uses functions to create menus.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{_u_i_8py_a4841d1d3e1f8cca843248e7b65b5a933}{UI.\+select\+\_\+character}} (name, player, settings)
+\begin{DoxyCompactList}\small\item\em Loads a different class based on the selected character. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{_u_i_8py_a26a0fa02e94c373a0ff4afceb819a6a4}{UI.\+main\+\_\+menu}} (scale\+\_\+width\+\_\+factor, scale\+\_\+height\+\_\+factor, dest\+\_\+gameloop, settings)
+\begin{DoxyCompactList}\small\item\em Creates a main menu. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{_u_i_8py_a5fc7079f1eb30a1f039917a4c3ba6cb9}{UI.\+pause\+\_\+menu}} (scale\+\_\+width\+\_\+factor, scale\+\_\+height\+\_\+factor, dest\+\_\+gameloop, settings)
+\begin{DoxyCompactList}\small\item\em Draws a menu when the escape key is pressed. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{_u_i_8py_ae6fb8c21e9af0ae035d097f0c18260ae}{UI.\+settings\+\_\+menu}} (scale\+\_\+width\+\_\+factor, scale\+\_\+height\+\_\+factor, dest\+\_\+gameloop, settings)
+\begin{DoxyCompactList}\small\item\em Creates a menu when the settings button is pressed. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{_u_i_8py_af6bd77a601b763f75d9119ec8bb59ca7}{UI.\+p1\+\_\+setings\+\_\+menu}} (scale\+\_\+width\+\_\+factor, scale\+\_\+height\+\_\+factor, dest\+\_\+gameloop, settings)
+\begin{DoxyCompactList}\small\item\em Creates the settings menu for the keybinds (player1) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{_u_i_8py_a6baaa9ca7dbf63d0e92998f1bf7de67f}{UI.\+p2\+\_\+setings\+\_\+menu}} (scale\+\_\+width\+\_\+factor, scale\+\_\+height\+\_\+factor, dest\+\_\+gameloop, settings)
+\begin{DoxyCompactList}\small\item\em Creates the settings menu for the keybinds (player2) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{_u_i_8py_a63781546ccdffa63f3692bf8437772f4}{UI.\+play\+\_\+menu}} (scale\+\_\+width\+\_\+factor, scale\+\_\+height\+\_\+factor, dest\+\_\+gameloop, settings)
+\begin{DoxyCompactList}\small\item\em Creates a menu for character selection. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{_u_i_8py_a53961e0f3178eeac52101d5fff0d41d5}{UI.\+gameover\+\_\+menu}} (scale\+\_\+width\+\_\+factor, scale\+\_\+height\+\_\+factor, dest\+\_\+gameloop, settings, player)
+\begin{DoxyCompactList}\small\item\em Creates a Gameover menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_u_i_8py_a54dec152f547ba78d8a1cbb3f43970ea}\label{_u_i_8py_a54dec152f547ba78d8a1cbb3f43970ea}} 
+int {\bfseries UI.\+WIDTH} = 1000
+\item 
+\mbox{\Hypertarget{_u_i_8py_a2232ad7f94570d49d21680f4b055b791}\label{_u_i_8py_a2232ad7f94570d49d21680f4b055b791}} 
+int {\bfseries UI.\+HEIGHT} = 600
+\item 
+\mbox{\Hypertarget{_u_i_8py_a3e1fe194932d5859e587d7727fce6c00}\label{_u_i_8py_a3e1fe194932d5859e587d7727fce6c00}} 
+pygame {\bfseries UI.\+SCREEN} = pygame.\+display.\+set\+\_\+mode((0,0), pygame.\+FULLSCREEN)
+\item 
+\mbox{\Hypertarget{_u_i_8py_ae17e99ad6d3e643ebd7ec4b8b2740835}\label{_u_i_8py_ae17e99ad6d3e643ebd7ec4b8b2740835}} 
+pygame {\bfseries UI.\+MAIN\+\_\+\+WIDTH} = SCREEN.\+get\+\_\+width()
+\item 
+\mbox{\Hypertarget{_u_i_8py_a6abb8e232c530b73f57cfb33ffe7cf6d}\label{_u_i_8py_a6abb8e232c530b73f57cfb33ffe7cf6d}} 
+pygame {\bfseries UI.\+MAIN\+\_\+\+HEIGHT} = SCREEN.\+get\+\_\+height()
+\item 
+\mbox{\Hypertarget{_u_i_8py_a2fa0d68e6353c8e350506b1f297f3c4a}\label{_u_i_8py_a2fa0d68e6353c8e350506b1f297f3c4a}} 
+pygame {\bfseries UI.\+font\+\_\+scaled} = pygame.\+font.\+Font(None, int(35$\ast$MAIN\+\_\+\+HEIGHT/HEIGHT))
+\item 
+\mbox{\Hypertarget{_u_i_8py_a4488a5efaafb9871fabe6bdb25fb426c}\label{_u_i_8py_a4488a5efaafb9871fabe6bdb25fb426c}} 
+pygame {\bfseries UI.\+transparent} = pygame.\+Color(255,255,255,a=255)
+\item 
+\mbox{\Hypertarget{_u_i_8py_a7ea090caf5568ebe2e0e6479582e8d78}\label{_u_i_8py_a7ea090caf5568ebe2e0e6479582e8d78}} 
+bool {\bfseries UI.\+reset} = False
+\item 
+\mbox{\Hypertarget{_u_i_8py_af49c6ca88b5f5b7df38ac25a2a5dea07}\label{_u_i_8py_af49c6ca88b5f5b7df38ac25a2a5dea07}} 
+None {\bfseries UI.\+select\+\_\+p1} = None
+\item 
+\mbox{\Hypertarget{_u_i_8py_a97fdd72602b403b34632bcc1b4a7f5a1}\label{_u_i_8py_a97fdd72602b403b34632bcc1b4a7f5a1}} 
+None {\bfseries UI.\+select\+\_\+p2} = None
+\item 
+\mbox{\Hypertarget{_u_i_8py_ae84854f9ddb340b9de7c4b4268526807}\label{_u_i_8py_ae84854f9ddb340b9de7c4b4268526807}} 
+None {\bfseries UI.\+player1} = None
+\item 
+\mbox{\Hypertarget{_u_i_8py_a0d871edadb8e18e292e00a808766911c}\label{_u_i_8py_a0d871edadb8e18e292e00a808766911c}} 
+None {\bfseries UI.\+player2} = None
+\item 
+dict \mbox{\hyperlink{_u_i_8py_a1c728c0f2957978c88148a3e5e064f8d}{UI.\+char\+\_\+list}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Uses functions to create menus. 
+
+\hypertarget{_u_i_8py_desciption_UI}{}\doxysubsection{Description}\label{_u_i_8py_desciption_UI}
+Defines functions for the following menus\+:
+\begin{DoxyItemize}
+\item selecting\+\_\+character (not a menu; used to load the selected character)
+\item main\+\_\+menu
+\item pause\+\_\+menu
+\item settings\+\_\+menu
+\item p1\+\_\+setings\+\_\+menu
+\item p2\+\_\+setings\+\_\+menu
+\item play\+\_\+menu
+\item gameover\+\_\+menu
+\end{DoxyItemize}\hypertarget{_u_i_8py_libraries_UI}{}\doxysubsection{Libraries/\+Modules}\label{_u_i_8py_libraries_UI}
+
+\begin{DoxyItemize}
+\item pygame library (\href{https://www.pygame.org/news}{\texttt{ https\+://www.\+pygame.\+org/news}})
+\item json library
+\item sys library
+\item os library
+\item Button\+Controller module
+\item Samurai module
+\item Vampire\+Girl module
+\item Lightning\+Mage module
+\item Fire\+Wizard module
+\item Animation\+Controller module
+\end{DoxyItemize}\hypertarget{_u_i_8py_author_UI}{}\doxysubsection{Author(s)}\label{_u_i_8py_author_UI}
+
+\begin{DoxyItemize}
+\item Created by mirko4001
+\item Modified by mirko4001 \& To\+S4 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_u_i_8py_a53961e0f3178eeac52101d5fff0d41d5}\label{_u_i_8py_a53961e0f3178eeac52101d5fff0d41d5}} 
+\index{UI.py@{UI.py}!gameover\_menu@{gameover\_menu}}
+\index{gameover\_menu@{gameover\_menu}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{gameover\_menu()}{gameover\_menu()}}
+{\footnotesize\ttfamily def UI.\+gameover\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{scale\+\_\+width\+\_\+factor,  }\item[{}]{scale\+\_\+height\+\_\+factor,  }\item[{}]{dest\+\_\+gameloop,  }\item[{}]{settings,  }\item[{}]{player }\end{DoxyParamCaption})}
+
+
+
+Creates a Gameover menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+\_\+width\+\_\+factor} & The scaling factor for the width \\
+\hline
+{\em scale\+\_\+height\+\_\+factor} & The scaling factor for the height \\
+\hline
+{\em dest\+\_\+gameloop} & The main game loop \\
+\hline
+{\em settings} & The Keybinds that are saved in settings.\+txt \\
+\hline
+{\em player} & An Integer for the players \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8py_a26a0fa02e94c373a0ff4afceb819a6a4}\label{_u_i_8py_a26a0fa02e94c373a0ff4afceb819a6a4}} 
+\index{UI.py@{UI.py}!main\_menu@{main\_menu}}
+\index{main\_menu@{main\_menu}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{main\_menu()}{main\_menu()}}
+{\footnotesize\ttfamily def UI.\+main\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{scale\+\_\+width\+\_\+factor,  }\item[{}]{scale\+\_\+height\+\_\+factor,  }\item[{}]{dest\+\_\+gameloop,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+
+
+Creates a main menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+\_\+width\+\_\+factor} & The scaling factor for the width \\
+\hline
+{\em scale\+\_\+height\+\_\+factor} & The scaling factor for the height \\
+\hline
+{\em dest\+\_\+gameloop} & The main game loop \\
+\hline
+{\em settings} & The Keybinds that are saved in settings.\+txt \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8py_af6bd77a601b763f75d9119ec8bb59ca7}\label{_u_i_8py_af6bd77a601b763f75d9119ec8bb59ca7}} 
+\index{UI.py@{UI.py}!p1\_setings\_menu@{p1\_setings\_menu}}
+\index{p1\_setings\_menu@{p1\_setings\_menu}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{p1\_setings\_menu()}{p1\_setings\_menu()}}
+{\footnotesize\ttfamily def UI.\+p1\+\_\+setings\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{scale\+\_\+width\+\_\+factor,  }\item[{}]{scale\+\_\+height\+\_\+factor,  }\item[{}]{dest\+\_\+gameloop,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+
+
+Creates the settings menu for the keybinds (player1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+\_\+width\+\_\+factor} & The scaling factor for the width \\
+\hline
+{\em scale\+\_\+height\+\_\+factor} & The scaling factor for the height \\
+\hline
+{\em dest\+\_\+gameloop} & The main game loop \\
+\hline
+{\em settings} & The Keybinds that are saved in settings.\+txt \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8py_a6baaa9ca7dbf63d0e92998f1bf7de67f}\label{_u_i_8py_a6baaa9ca7dbf63d0e92998f1bf7de67f}} 
+\index{UI.py@{UI.py}!p2\_setings\_menu@{p2\_setings\_menu}}
+\index{p2\_setings\_menu@{p2\_setings\_menu}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{p2\_setings\_menu()}{p2\_setings\_menu()}}
+{\footnotesize\ttfamily def UI.\+p2\+\_\+setings\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{scale\+\_\+width\+\_\+factor,  }\item[{}]{scale\+\_\+height\+\_\+factor,  }\item[{}]{dest\+\_\+gameloop,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+
+
+Creates the settings menu for the keybinds (player2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+\_\+width\+\_\+factor} & The scaling factor for the width \\
+\hline
+{\em scale\+\_\+height\+\_\+factor} & The scaling factor for the height \\
+\hline
+{\em dest\+\_\+gameloop} & The main game loop \\
+\hline
+{\em settings} & The Keybinds that are saved in settings.\+txt \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8py_a5fc7079f1eb30a1f039917a4c3ba6cb9}\label{_u_i_8py_a5fc7079f1eb30a1f039917a4c3ba6cb9}} 
+\index{UI.py@{UI.py}!pause\_menu@{pause\_menu}}
+\index{pause\_menu@{pause\_menu}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{pause\_menu()}{pause\_menu()}}
+{\footnotesize\ttfamily def UI.\+pause\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{scale\+\_\+width\+\_\+factor,  }\item[{}]{scale\+\_\+height\+\_\+factor,  }\item[{}]{dest\+\_\+gameloop,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+
+
+Draws a menu when the escape key is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+\_\+width\+\_\+factor} & The scaling factor for the width \\
+\hline
+{\em scale\+\_\+height\+\_\+factor} & The scaling factor for the height \\
+\hline
+{\em dest\+\_\+gameloop} & The main game loop \\
+\hline
+{\em settings} & The Keybinds that are saved in settings.\+txt \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8py_a63781546ccdffa63f3692bf8437772f4}\label{_u_i_8py_a63781546ccdffa63f3692bf8437772f4}} 
+\index{UI.py@{UI.py}!play\_menu@{play\_menu}}
+\index{play\_menu@{play\_menu}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{play\_menu()}{play\_menu()}}
+{\footnotesize\ttfamily def UI.\+play\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{scale\+\_\+width\+\_\+factor,  }\item[{}]{scale\+\_\+height\+\_\+factor,  }\item[{}]{dest\+\_\+gameloop,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+
+
+Creates a menu for character selection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+\_\+width\+\_\+factor} & The scaling factor for the width \\
+\hline
+{\em scale\+\_\+height\+\_\+factor} & The scaling factor for the height \\
+\hline
+{\em dest\+\_\+gameloop} & The main game loop \\
+\hline
+{\em settings} & The Keybinds that are saved in settings.\+txt \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8py_a4841d1d3e1f8cca843248e7b65b5a933}\label{_u_i_8py_a4841d1d3e1f8cca843248e7b65b5a933}} 
+\index{UI.py@{UI.py}!select\_character@{select\_character}}
+\index{select\_character@{select\_character}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{select\_character()}{select\_character()}}
+{\footnotesize\ttfamily def UI.\+select\+\_\+character (\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{player,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+
+
+Loads a different class based on the selected character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Character name \\
+\hline
+{\em player} & Player 1 or Player 2 \\
+\hline
+{\em settings} & The saved settings in settings.\+txt\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+selected\+\_\+character The class of the selected character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_i_8py_ae6fb8c21e9af0ae035d097f0c18260ae}\label{_u_i_8py_ae6fb8c21e9af0ae035d097f0c18260ae}} 
+\index{UI.py@{UI.py}!settings\_menu@{settings\_menu}}
+\index{settings\_menu@{settings\_menu}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{settings\_menu()}{settings\_menu()}}
+{\footnotesize\ttfamily def UI.\+settings\+\_\+menu (\begin{DoxyParamCaption}\item[{}]{scale\+\_\+width\+\_\+factor,  }\item[{}]{scale\+\_\+height\+\_\+factor,  }\item[{}]{dest\+\_\+gameloop,  }\item[{}]{settings }\end{DoxyParamCaption})}
+
+
+
+Creates a menu when the settings button is pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scale\+\_\+width\+\_\+factor} & The scaling factor for the width \\
+\hline
+{\em scale\+\_\+height\+\_\+factor} & The scaling factor for the height \\
+\hline
+{\em dest\+\_\+gameloop} & The main game loop \\
+\hline
+{\em settings} & The Keybinds that are saved in settings.\+txt \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_u_i_8py_a1c728c0f2957978c88148a3e5e064f8d}\label{_u_i_8py_a1c728c0f2957978c88148a3e5e064f8d}} 
+\index{UI.py@{UI.py}!char\_list@{char\_list}}
+\index{char\_list@{char\_list}!UI.py@{UI.py}}
+\doxysubsubsection{\texorpdfstring{char\_list}{char\_list}}
+{\footnotesize\ttfamily dict UI.\+char\+\_\+list}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \{\textcolor{stringliteral}{"{}Samurai"{}}:\textcolor{stringliteral}{"{}aquamarine2"{}},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}FireWizard"{}}:\textcolor{stringliteral}{"{}orange"{}},}
+\DoxyCodeLine{00003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}LightningMage"{}}:\textcolor{stringliteral}{"{}darkolivegreen1"{}},}
+\DoxyCodeLine{00004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}VampireGirl"{}}:\textcolor{stringliteral}{"{}hotpink3"{}}\}}
+
+\end{DoxyCode}

@@ -1,0 +1,89 @@
+\hypertarget{class_button_controller_1_1_character_box}{}\doxysection{Button\+Controller.\+Character\+Box Class Reference}
+\label{class_button_controller_1_1_character_box}\index{ButtonController.CharacterBox@{ButtonController.CharacterBox}}
+
+
+The Character\+Box class.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_button_controller_1_1_character_box_a8b2d8040fcff8f934f621a5ccdae9464}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, x, y, w, h, color, scale\+\_\+width, scale\+\_\+height, char)
+\begin{DoxyCompactList}\small\item\em Initializer for the Character\+Box class. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_button_controller_1_1_character_box_a0a297facbf7f1a760209708567e184aa}{draw}} (self, screen)
+\begin{DoxyCompactList}\small\item\em Draws the Box. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_button_controller_1_1_character_box_a8a69ac4a1dc56e61917f584e41f9e0e6}{select}} (self, char\+\_\+list, char)
+\begin{DoxyCompactList}\small\item\em Changes color of the box, when it is selected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_character_box_a8efc447a8ac82825cc391038cdf0d4ef}\label{class_button_controller_1_1_character_box_a8efc447a8ac82825cc391038cdf0d4ef}} 
+{\bfseries rect}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_character_box_a5c1c070657723093a3b6591bf27cba6e}\label{class_button_controller_1_1_character_box_a5c1c070657723093a3b6591bf27cba6e}} 
+{\bfseries color}
+\item 
+\mbox{\Hypertarget{class_button_controller_1_1_character_box_a8dfb25f84883b892d2c7573fa2f2da9b}\label{class_button_controller_1_1_character_box_a8dfb25f84883b892d2c7573fa2f2da9b}} 
+{\bfseries char}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Character\+Box class. 
+
+Creates a Rectangle with the player in it, for the selection 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_button_controller_1_1_character_box_a8b2d8040fcff8f934f621a5ccdae9464}\label{class_button_controller_1_1_character_box_a8b2d8040fcff8f934f621a5ccdae9464}} 
+\index{ButtonController.CharacterBox@{ButtonController.CharacterBox}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ButtonController.CharacterBox@{ButtonController.CharacterBox}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Button\+Controller.\+Character\+Box.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{w,  }\item[{}]{h,  }\item[{}]{color,  }\item[{}]{scale\+\_\+width,  }\item[{}]{scale\+\_\+height,  }\item[{}]{char }\end{DoxyParamCaption})}
+
+
+
+Initializer for the Character\+Box class. 
+
+\begin{DoxyVerb}   @param x    Position on the x axis
+   @param y    Position on the y axis
+   @param w    Width of the box
+   @param h    Height of the box
+   @param scale_width  Scale factor for the width
+   @param scale_height Scale factor for the height
+   @param char The selected character
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_button_controller_1_1_character_box_a0a297facbf7f1a760209708567e184aa}\label{class_button_controller_1_1_character_box_a0a297facbf7f1a760209708567e184aa}} 
+\index{ButtonController.CharacterBox@{ButtonController.CharacterBox}!draw@{draw}}
+\index{draw@{draw}!ButtonController.CharacterBox@{ButtonController.CharacterBox}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily def Button\+Controller.\+Character\+Box.\+draw (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{screen }\end{DoxyParamCaption})}
+
+
+
+Draws the Box. 
+
+\begin{DoxyVerb}   2 rects: 1 for the outline and 1 for the inside color
+
+   @param screen   The screen which will be drawn on
+\end{DoxyVerb}
+ \mbox{\Hypertarget{class_button_controller_1_1_character_box_a8a69ac4a1dc56e61917f584e41f9e0e6}\label{class_button_controller_1_1_character_box_a8a69ac4a1dc56e61917f584e41f9e0e6}} 
+\index{ButtonController.CharacterBox@{ButtonController.CharacterBox}!select@{select}}
+\index{select@{select}!ButtonController.CharacterBox@{ButtonController.CharacterBox}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}}
+{\footnotesize\ttfamily def Button\+Controller.\+Character\+Box.\+select (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{char\+\_\+list,  }\item[{}]{char }\end{DoxyParamCaption})}
+
+
+
+Changes color of the box, when it is selected. 
+
+\begin{DoxyVerb}   @param char_list    A dictionary which has every character and its theme color in it
+   @param char         The selected character
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_button_controller_8py}{Button\+Controller.\+py}}\end{DoxyCompactItemize}
