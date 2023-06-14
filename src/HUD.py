@@ -14,6 +14,7 @@ class Health_Bar():
         self.reversed = r
 
     def draw(self, screen, player):
+        # 3 rects: outline, red and green
         prozent = player.health / player.max_health
         pygame.draw.rect(screen, "Red", (self.x*self.scale_w, self.y*self.scale_h, self.width*self.scale_w, self.height*self.scale_h))
         if not self.reversed:
@@ -21,6 +22,7 @@ class Health_Bar():
         else:
             pygame.draw.rect(screen, "Green", ((self.x-(self.width*prozent)+250)*self.scale_w, self.y*self.scale_h,
                                                 ((self.width * prozent)+2)*self.scale_w, self.height*self.scale_h))
+        pygame.draw.rect(screen,"black",(self.x*self.scale_w, self.y*self.scale_h, self.width*self.scale_w, self.height*self.scale_h), 1)
 
 class Stamina_Bar():
     def __init__(self, x,y,w,h,scale_w,scale_h, r = False):
@@ -38,9 +40,11 @@ class Stamina_Bar():
         prozent = player.stamina / player.max_stamina
         if not self.reversed:
             pygame.draw.rect(screen, "lightblue", (self.x*self.scale_w, self.y*self.scale_h, (self.w * prozent)*self.scale_w, self.h*self.scale_h))
+            pygame.draw.rect(screen,"black",(self.x*self.scale_w, self.y*self.scale_h, self.w*self.scale_w, self.h*self.scale_h), 1)
         else:
             pygame.draw.rect(screen, "lightblue", ((self.x-(self.w * prozent)+180)*self.scale_w, self.y*self.scale_h,
                                                     ((self.w * prozent)+2)*self.scale_w, self.h*self.scale_h))
+            pygame.draw.rect(screen,"black",((self.x-1)*self.scale_w, self.y*self.scale_h, (self.w+1)*self.scale_w, self.h*self.scale_h), 1)
             
 class Character_Icon():
     def __init__(self, x,y,w,h, scale_w, scale_h):
@@ -59,5 +63,7 @@ class Character_Icon():
         icon = pygame.image.load(f"src/assets/imgs/{char}/Icon.png")
         icon = pygame.transform.scale(icon, (99*self.scale_w,99*self.scale_h))
 
+        # draw rect for black outline and rect for white fill
+        pygame.draw.rect(screen, "darkolivegreen1", self.rect)
         pygame.draw.rect(screen, "black", self.rect, 3)
         screen.blit(icon, self.rect)
