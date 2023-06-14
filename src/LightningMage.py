@@ -218,7 +218,7 @@ class LightningMage():
             self.action = 6 + self.attack_index
 
             def check():
-                if Hitbox((-80 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1).detect_collision(SCREEN, target):
+                if Hitbox((-25 if self.flip else +25 ,0),(self.width_factor,self.height_factor),self,1,1).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
@@ -296,7 +296,7 @@ class LightningMage():
             @param SCREEN   the pygame screen object
             """
         
-        #pygame.draw.rect(SCREEN, (0,255,0), self.rect)
+        pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         img = pygame.transform.scale(pygame.transform.flip(self.image, self.flip, False), (self.width_hitbox*3.5*self.width_factor, self.height_hitbox*2*self.height_factor))
         img_rect = img.get_rect()
         if not self.flip:
