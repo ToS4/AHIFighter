@@ -1,8 +1,47 @@
+"""! @brief Defines classes necessary for the buttons and controls"""
+
+##
+# @file ButtonController.py
+#
+# @brief Defines classes necessary for the buttons and controls
+#
+# @section description_ButtonController Description
+# Defines a class for objects used to control the game (hotkeys, ...):
+# - Button (used to make buttons for the UI)
+# - InputBox (used to save inputs in a box)
+# - CharacterBox (creates a box with the character in it)
+#
+# @section libraries_ButtonController Libraries/Modules
+# - pygame library (https://www.pygame.org/news)
+# - pygame.gfxdraw (used for advanced drawing)
+# 
+# @section author_HUD Author(s)
+# - Created by mirko4001
+# - Modified by mirko4001 & ToS4
+
 import pygame
 import pygame.gfxdraw
 
 class Button:
+    """! The Button class
+
+    Creates a Button that has a hover effect and can do an action if it is clicked
+    """
     def __init__(self, pos_x, pos_y, width, height, color, text, text_color, font, scale_width, scale_height, action = None):
+        """! Initializer for the Button class
+
+        @param pos_x    Position on the x axis
+        @param pos_y    Position on the y axis
+        @param width    Width of the button
+        @param height   Height of the button
+        @param color    Color of the button
+        @param text     Text that is centered in the button
+        @param text_color   Color of the displayed text
+        @param font     Size and font of the text
+        @param scale_width  Scale factor for the width
+        @param scale_height Scale factor for the height
+        @param action   What happens when the button is clicked
+        """
         self.color = color
         self.text = text
         self.text_color = text_color
@@ -11,6 +50,10 @@ class Button:
         self.rect = pygame.Rect(pos_x * scale_width, pos_y * scale_height, width * scale_width, height * scale_height)
 
     def draw(self, screen):
+        """! Responsible for drawing the Button
+
+        @param screen   The screen which will be drawn on
+        """
         pygame.draw.rect(screen, self.color, self.rect)
         font_surface = self.font.render(self.text, True, self.text_color)
         font_rect = font_surface.get_rect()
@@ -18,12 +61,20 @@ class Button:
         screen.blit(font_surface, font_rect)
 
     def handle_event(self, event):
+        """! Responsible for the action, when the button is pressed
+
+        @param event    Keycode from Pygame
+        """
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.rect.collidepoint(event.pos):
                 if self.action != None:
                     self.action()
     
     def hover_effect(self, mouse_pos):
+        """! Makes the button different when it is hovered
+
+        @param mouse_pos    Position of the mouse
+        """
         mouse_x, mouse_y = mouse_pos
         if self.rect.collidepoint(mouse_x, mouse_y):
             self.text_color = "Green"
@@ -31,7 +82,21 @@ class Button:
             self.text_color = "White"
 
 class InputBox:
-    def __init__(self, x, y, w, h, font, text_color, color, scale_width, scale_height, settings, player, text = "") -> None:
+    def __init__(self, x, y, w, h, font, text_color, color, scale_width, scale_height, settings, text = "") -> None:
+        """! Initializer for InputBox class
+
+        @param x    Position on the x axis
+        @param y    Position on the y axis
+        @param w    Width of the box
+        @param h   Height of the box
+        @param font     Size and font of the text
+        @param text_color   Color of the displayed text
+        @param color    Color of the box
+        @param scale_width  Scale factor for the width
+        @param scale_height Scale factor for the height
+        @param settings The saved settings in the settings.txt
+        @param text     Text that is centered in the box
+        """
         self.color_tmp = color
         self.color_a = 255
         self.color = pygame.Color(*color, self.color_a)
@@ -44,7 +109,6 @@ class InputBox:
         self.rect = pygame.Rect(x*scale_width,y*scale_height,w*scale_width,h*scale_width)
         
         self.settings = settings
-        self.player = player
 
         self.font = font
         self.user_text = text
