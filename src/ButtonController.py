@@ -82,6 +82,10 @@ class Button:
             self.text_color = "White"
 
 class InputBox:
+    """! The InputBox class
+
+    Creates a box that can save text in a box
+    """
     def __init__(self, x, y, w, h, font, text_color, color, scale_width, scale_height, settings, text = "") -> None:
         """! Initializer for InputBox class
 
@@ -114,7 +118,11 @@ class InputBox:
         self.user_text = text
         self.text_color = text_color
 
-    def draw(self, screen):        
+    def draw(self, screen):
+        """! Draws the InputBox
+
+        @param screen   The screen which will be drawn on
+        """
         text_surface = self.font.render(self.user_text, True, self.text_color)
 
         if self.active:
@@ -131,6 +139,10 @@ class InputBox:
         self.rect.w = max(100, text_surface.get_width()+self.scale_height*50)
 
     def handle_event(self, event):
+        """! Responsible for the action, when the button is pressed
+
+        @param event    Keycode from Pygame
+        """
         if event.type == pygame.MOUSEBUTTONDOWN:
             if self.rect.collidepoint(event.pos):
                 self.active = True
@@ -154,27 +166,42 @@ class InputBox:
                     self.user_text += pygame.key.name(event.key)
                     self.active = False
         return self.user_text
-    
-    def hover_effect(self, mouse_pos):
-        mouse_x, mouse_y = mouse_pos
-        if self.rect.collidepoint(mouse_x, mouse_y):
-            self.color_a = 50
-            self.color = (*self.color_tmp, self.color_a)
-        else:
-            self.color_a = 250
-            self.color = (*self.color_tmp, self.color_a)
 
 class CharacterBox:
+    """! The CharacterBox class
+
+    Creates a Rectangle with the player in it, for the selection
+    """
     def __init__(self, x,y,w,h, color, scale_width, scale_height, char):
+        """! Initializer for the CharacterBox class
+
+        @param x    Position on the x axis
+        @param y    Position on the y axis
+        @param w    Width of the box
+        @param h    Height of the box
+        @param scale_width  Scale factor for the width
+        @param scale_height Scale factor for the height
+        @param char The selected character
+        """
         self.rect = pygame.Rect(x*scale_width, y*scale_height, w*scale_width, h*scale_height)
         self.color = color
 
         self.char = char
 
     def draw(self, screen):
-        # 2 rects: 1 for the outline and 1 for the inside color
+        """! Draws the Box
+
+        2 rects: 1 for the outline and 1 for the inside color
+
+        @param screen   The screen which will be drawn on
+        """
         pygame.draw.rect(screen, self.color, self.rect)
         pygame.draw.rect(screen, "black", self.rect, 2)
         
     def select(self,char_list, char):
+        """! Changes color of the box, when it is selected
+
+        @param char_list    A dictionary which has every character and its theme color in it
+        @param char         The selected character
+        """
         self.color = char_list[char]
