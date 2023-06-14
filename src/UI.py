@@ -1,21 +1,34 @@
-"""! @brief Defines classes necessary for the HUD"""
+"""! @brief Uses functions to create menus"""
 
 ##
-# @file HUD.py
+# @file UI.py
 #
-# @brief Creates classes necessary for the HUD
+# @brief Uses functions to create menus
 #
-# @section desciption_HUD Description
-# Defines a class for the following objects, that will be shown in-game:
-# - Health_Bar (creates a health bar thats dependant on the players health)
-# - Stamina_Bar (same goes for the Stamina_Bar)
-# - Character_Icon (creates a rect with the selected character in it)
+# @section desciption_UI Description
+# Defines functions for the following menus:
+# - selecting_character (not a menu; used to load the selected character)
+# - main_menu
+# - pause_menu
+# - settings_menu
+# - p1_setings_menu
+# - p2_setings_menu
+# - play_menu
+# - gameover_menu
 #
-# @section libraries_HUD Libraries/Modules
+# @section libraries_UI Libraries/Modules
 # - pygame library (https://www.pygame.org/news)
-#   - used for pretty much everything
+# - json library
+# - sys library
+# - os library
+# - ButtonController module
+# - Samurai module
+# - VampireGirl module
+# - LightningMage module
+# - FireWizard module
+# - AnimationController module
 # 
-# @section author_HUD Author(s)
+# @section author_UI Author(s)
 # - Created by mirko4001
 # - Modified by mirko4001 & ToS4
 
@@ -62,10 +75,16 @@ char_list = {"Samurai":"aquamarine2",
              "VampireGirl":"hotpink3"}
 
 def select_character(name, player,settings):
+    """! Loads a different class based on the selected character
 
-    y = 160
+    @param name     Character name
+    @param player   Player 1 or Player 2
+    @param settings The saved settings in settings.txt
 
-    pos = (800 if player == 2 else 200,y) # (x, y)
+    @return selected_character  The class of the selected character
+    """
+
+    pos = (800 if player == 2 else 200,160) # (x, y)
     scale_factor = (MAIN_WIDTH / WIDTH, MAIN_HEIGHT / HEIGHT)    #  (width_factor, height_factor)
     character_hitbox_size = (60,120)    # (width_hitbox, height_hitbox)
     flip = True if player == 2 else False
@@ -142,6 +161,13 @@ def select_character(name, player,settings):
         return VampireGirl( pos, scale_factor, character_hitbox_size, flip, controls, animations)
 
 def main_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
+    """! Creates a main menu
+
+    @param scale_width_factor   The scaling factor for the width
+    @param scale_height_factor  The scaling factor for the height
+    @param dest_gameloop        The main game loop
+    @param settings             The Keybinds that are saved in settings.txt
+    """
     global reset
     reset = True
     # Creating the play button and settings its position
@@ -191,6 +217,13 @@ def main_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
         pygame.display.update()
 
 def pause_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
+    """! Draws a menu when the escape key is pressed
+
+    @param scale_width_factor   The scaling factor for the width
+    @param scale_height_factor  The scaling factor for the height
+    @param dest_gameloop        The main game loop
+    @param settings             The Keybinds that are saved in settings.txt
+    """
     global reset, player1, player2
     reset = False
     # Creating the play button and settings its position
@@ -231,6 +264,13 @@ def pause_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings)
         pygame.display.update()
 
 def settings_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
+    """! Creates a menu when the settings button is pressed
+
+    @param scale_width_factor   The scaling factor for the width
+    @param scale_height_factor  The scaling factor for the height
+    @param dest_gameloop        The main game loop
+    @param settings             The Keybinds that are saved in settings.txt
+    """
     # The responsible buttons for each players settings
     keybinds_p1_button = Button(0,0,300,80,"black","PLAYER 1","white",font_scaled, scale_width_factor, scale_height_factor,
                                  lambda: p1_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings))
@@ -275,6 +315,13 @@ def settings_menu(scale_width_factor, scale_height_factor, dest_gameloop, settin
         pygame.display.update()
 
 def p1_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
+    """! Creates the settings menu for the keybinds (player1)
+
+    @param scale_width_factor   The scaling factor for the width
+    @param scale_height_factor  The scaling factor for the height
+    @param dest_gameloop        The main game loop
+    @param settings             The Keybinds that are saved in settings.txt
+    """
     # This is to create a "text", in reality it is a button with no functionality
     p1_text = Button(0,0,300,80,transparent,"PLAYER 1","black", font_scaled,scale_width_factor, scale_height_factor, None)
     p1_text.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 - 250*scale_height_factor)
@@ -351,6 +398,13 @@ def p1_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
         pygame.display.update()
 
 def p2_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
+    """! Creates the settings menu for the keybinds (player2)
+
+    @param scale_width_factor   The scaling factor for the width
+    @param scale_height_factor  The scaling factor for the height
+    @param dest_gameloop        The main game loop
+    @param settings             The Keybinds that are saved in settings.txt
+    """
     # This is to create a "text", in reality it is a button with no functionality
     p2_text = Button(0,0,300,80,transparent,"PLAYER 2","black", font_scaled,scale_width_factor, scale_height_factor, None)
     p2_text.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 - 250*scale_height_factor)
@@ -427,6 +481,13 @@ def p2_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
         pygame.display.update()
 
 def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
+    """! Creates a menu for character selection
+
+    @param scale_width_factor   The scaling factor for the width
+    @param scale_height_factor  The scaling factor for the height
+    @param dest_gameloop        The main game loop
+    @param settings             The Keybinds that are saved in settings.txt
+    """
     global select_p1, select_p2, player1, player2
     
     player = 1
@@ -570,6 +631,14 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
         pygame.display.update()
 
 def gameover_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings, player):
+    """! Creates a Gameover menu
+
+    @param scale_width_factor   The scaling factor for the width
+    @param scale_height_factor  The scaling factor for the height
+    @param dest_gameloop        The main game loop
+    @param settings             The Keybinds that are saved in settings.txt
+    @param player               An Integer for the players
+    """
     global player1, player2, reset
     reset = True
 
