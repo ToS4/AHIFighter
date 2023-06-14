@@ -31,6 +31,9 @@ reset = False
 select_p1 = None
 select_p2 = None
 
+player1 = None
+player2 = None
+
 def select_character(name, player,settings):
 
     y = 160
@@ -397,7 +400,7 @@ def p2_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
         pygame.display.update()
 
 def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
-    global select_p1, select_p2
+    global select_p1, select_p2, player1, player2
     
     player = 1
 
@@ -445,6 +448,7 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
 
         player1 = select_character(select_p1,1, settings)
         player2 = select_character(select_p2,2, settings)
+
         print(player1)
         mouse_pos = pygame.mouse.get_pos()
         for event in pygame.event.get():
@@ -538,12 +542,13 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
         pygame.display.update()
 
 def gameover_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings, player):
+    global player1, player2
 
     who_won_text = Button(0,0,250,80,transparent,f"{player} won!","black", font_scaled,scale_width_factor, scale_height_factor, None)
     who_won_text.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 - 250*scale_height_factor)
 
     play_button = Button(0,0,250,80,"black","PLAY AGAIN","White",font_scaled
-                        ,scale_width_factor, scale_height_factor, lambda: dest_gameloop())
+                        ,scale_width_factor, scale_height_factor, lambda: dest_gameloop(player1, player2))
     play_button.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2- 50*scale_height_factor)
 
     back_button = Button(0,0,300,80,"black","BACK TO LOBBY","white",font_scaled, scale_width_factor, scale_height_factor,
