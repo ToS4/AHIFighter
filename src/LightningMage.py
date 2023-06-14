@@ -1,9 +1,41 @@
+"""! @brief Lightning Mage"""
+
+##
+# @file LightningMage.py
+#
+# @brief Lightning Mage Character
+#
+# @section description_lm Description
+# - the lightning mage class
+#
+# @section libraries_lm Libraries/Modules
+# - pygame
+# - time
+# - threading
+# - hitboxcontroller (local)
+#
+# @section author_lm Author(s)
+# - Created by ToS4
+# - Modified  by mirko4001 & ToS4
+#
+##
+
 import pygame, time,threading
 from HitboxController import Hitbox
 
 class LightningMage():
+    """! Lightning Mage"""
 
     def __init__(self, pos: tuple, scale_factor: tuple, character_hitbox_size: tuple, flip : bool, controls: dict, animations: list):
+        """! Initializes the Character.
+        
+            @param self the client, a class object of their selected character
+            @param pos  the position of the character's hitbox, a tuple with x- and y-axis
+            @param character_hitbox_size    the width and height of the hitbox
+            @param flip   the character flip state at the start
+            @param controls   the settings keys
+            @param animations   a matrix with all the animations, each action has its own list with all the images saved
+        """
 
         self.Name = "LightingMage"
 
@@ -50,6 +82,14 @@ class LightningMage():
         self.ability_frames = 0
 
     def handle_keys(self, SCREEN, WIDTH, HEIGHT, target):
+        """! Key-Handler of the Character
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            @param WIDTH    the width of the screen
+            @param HEIGHT   the height of the screen
+            @param target   the target, a class object of their selected character
+            """
 
         GRAVITY = 2
         keys = pygame.key.get_pressed()
@@ -131,6 +171,12 @@ class LightningMage():
         self.action = new_action
 
     def update(self, SCREEN):
+        """! Update of the Character
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            """
+        
         if self.attacking: 
             if time.time() - self.attack_cooldown > 0.9:
                 self.attack_cooldown = 0
@@ -152,11 +198,13 @@ class LightningMage():
         self.image = self.animations[self.action].get_image()
 
     def attack(self,SCREEN, target):
-        """
-        set attacking to true
-        set an index to the time, the attack has been used
-        check in update function, if the cool
-        """
+        """! Attack Function of the Character (gets fires once clicking a hotkey)
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            @param target   the target, a class object of their selected character
+            """
+        
         if not self.attacking and not self.using:
             self.attacking = True
             if time.time() - self.attack_hit < 1.1:
@@ -202,6 +250,13 @@ class LightningMage():
             threading.Thread(target=check).start()
 
     def ability(self,SCREEN,target):
+        """! Ability Function of the Character (gets fires once clicking a hotkey)
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            @param target   the target, a class object of their selected character
+            """
+        
         if not self.using and not self.attacking:
             if self.stamina >= self.stamina_need:
                 self.stamina -= self.stamina_need
@@ -236,7 +291,13 @@ class LightningMage():
                 threading.Thread(target=check).start()
 
     def draw(self, SCREEN):
-        pygame.draw.rect(SCREEN, (0,255,0), self.rect)
+        """! Draw Function of the Character
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            """
+        
+        #pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         img = pygame.transform.scale(pygame.transform.flip(self.image, self.flip, False), (self.width_hitbox*3.5*self.width_factor, self.height_hitbox*2*self.height_factor))
         img_rect = img.get_rect()
         if not self.flip:
