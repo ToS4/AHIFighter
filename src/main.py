@@ -32,6 +32,9 @@ import UI
 import HUD
 
 pygame.init()
+pygame.mixer.init()
+
+pygame.mixer.music.set_volume(1)
 
 # fixed Screen
 WIDTH = 1000
@@ -79,7 +82,8 @@ def game_loop(player1, player2):
             @param player1 a class of the selected character 
             @param player2 a class of the selected character 
         """
-    
+    game_music = pygame.mixer.music.load("src/assets/sounds/game_music.wav")
+    pygame.mixer.music.play(-1)
     global current_bg
     running = True
     current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))

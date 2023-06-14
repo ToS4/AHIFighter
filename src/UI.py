@@ -43,6 +43,9 @@ from FireWizard import FireWizard
 from AnimationController import Animation
 
 pygame.init()
+pygame.mixer.init()
+
+pygame.mixer.music.set_volume(1)
 
 # fixed Screen
 WIDTH = 1000
@@ -167,6 +170,8 @@ def main_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     @param dest_gameloop        The main game loop
     @param settings             The Keybinds that are saved in settings.txt
     """
+    main_music = pygame.mixer.music.load("src/assets/sounds/main_menu_music.wav")
+    pygame.mixer.music.play(-1)
     global reset
     reset = True
     # Creating the play button and settings its position
