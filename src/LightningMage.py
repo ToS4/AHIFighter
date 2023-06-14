@@ -171,7 +171,7 @@ class LightningMage():
             self.action = 6 + self.attack_index
 
             def check():
-                if Hitbox((-75 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1.5).detect_collision(SCREEN, target):
+                if Hitbox((-80 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
@@ -242,8 +242,12 @@ class LightningMage():
         if not self.flip:
             img_rect.bottomleft = self.rect.bottomleft
             img_rect.x -= 58 * self.width_factor
+            if self.using:
+                img_rect.x += 50 * self.width_factor
         else:
             img_rect.bottomright = self.rect.bottomright
             img_rect.x += 58 * self.width_factor
+            if self.using:
+                img_rect.x -= 50 * self.width_factor
         
         SCREEN.blit(img, img_rect)
