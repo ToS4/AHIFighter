@@ -1,3 +1,24 @@
+"""! @brief Defines classes necessary for the HUD"""
+
+##
+# @file HUD.py
+#
+# @brief Creates classes necessary for the HUD
+#
+# @section desciption_HUD Description
+# Defines a class for the following objects, that will be shown in-game:
+# - Health_Bar (creates a health bar thats dependant on the players health)
+# - Stamina_Bar (same goes for the Stamina_Bar)
+# - Character_Icon (creates a rect with the selected character in it)
+#
+# @section libraries_HUD Libraries/Modules
+# - pygame library (https://www.pygame.org/news)
+#   - used for pretty much everything
+# 
+# @section author_HUD Author(s)
+# - Created by mirko4001
+# - Modified by mirko4001 & ToS4
+
 import pygame
 import json
 import sys
@@ -266,31 +287,31 @@ def p1_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
     # all input boxes for the keybinds
     left_kb_text = Button(0,0,300,80,transparent,"Move Left","black", font_scaled,scale_width_factor, scale_height_factor, None)
     left_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
-    left_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    left_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                        pygame.key.name(settings["player1"]["left"]))
     left_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
 
     right_kb_text = Button(0,0,300,80,transparent,"Move Right","black", font_scaled,scale_width_factor, scale_height_factor, None)
     right_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 100*scale_height_factor)
-    right_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    right_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                         pygame.key.name(settings["player1"]["right"]))
     right_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-100*scale_height_factor)
 
     jump_kb_text = Button(0,0,300,80,transparent,"Jump","black", font_scaled,scale_width_factor, scale_height_factor, None)
     jump_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
-    jump_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    jump_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                        pygame.key.name(settings["player1"]["jump"]))
     jump_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
 
     attack_kb_text = Button(0,0,300,80,transparent,"Attack","black", font_scaled,scale_width_factor, scale_height_factor, None)
     attack_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
-    attack_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    attack_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                          pygame.key.name(settings["player1"]["attack"]))
     attack_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
 
     ability_kb_text = Button(0,0,300,80,transparent,"Ability","black", font_scaled,scale_width_factor, scale_height_factor, None)
     ability_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
-    ability_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    ability_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                          pygame.key.name(settings["player1"]["ability"]))
     ability_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
 
@@ -342,31 +363,31 @@ def p2_setings_menu(scale_width_factor, scale_height_factor, dest_gameloop, sett
     # all input boxes for the keybinds
     left_kb_text = Button(0,0,300,80,transparent,"Move Left","black", font_scaled,scale_width_factor, scale_height_factor, None)
     left_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
-    left_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    left_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                        pygame.key.name(settings["player2"]["left"]))
     left_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2 - 175*scale_height_factor)
 
     right_kb_text = Button(0,0,300,80,transparent,"Move Right","black", font_scaled,scale_width_factor, scale_height_factor, None)
     right_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2 - 100*scale_height_factor)
-    right_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    right_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                         pygame.key.name(settings["player2"]["right"]))
     right_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-100*scale_height_factor)
 
     jump_kb_text = Button(0,0,300,80,transparent,"Jump","black", font_scaled,scale_width_factor, scale_height_factor, None)
     jump_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
-    jump_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    jump_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                        pygame.key.name(settings["player2"]["jump"]))
     jump_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2-25*scale_height_factor)
 
     attack_kb_text = Button(0,0,300,80,transparent,"Attack","black", font_scaled,scale_width_factor, scale_height_factor, None)
     attack_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
-    attack_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    attack_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                          pygame.key.name(settings["player2"]["attack"]))
     attack_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+50*scale_height_factor)
 
     ability_kb_text = Button(0,0,300,80,transparent,"Ability","black", font_scaled,scale_width_factor, scale_height_factor, None)
     ability_kb_text.rect.center = (MAIN_WIDTH/2-75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
-    ability_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings, "player2",
+    ability_kb = InputBox(0,0,50,50,font_scaled, (0,0,0), (33, 239, 234), scale_width_factor,scale_height_factor, settings,
                          pygame.key.name(settings["player2"]["ability"]))
     ability_kb.rect.center = (MAIN_WIDTH/2+75*scale_width_factor, MAIN_HEIGHT/2+125*scale_height_factor)
 
