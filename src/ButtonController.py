@@ -112,5 +112,5 @@ class CharacterBox:
         pygame.draw.rect(screen, self.color, self.rect)
         pygame.draw.rect(screen, "black", self.rect, 2)
         
-    def select(self):
-        self.color = "grey"
+    def select(self,char_list, char):
+        self.color = char_list[char]

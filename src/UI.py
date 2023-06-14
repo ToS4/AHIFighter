@@ -34,6 +34,12 @@ select_p2 = None
 player1 = None
 player2 = None
 
+# dict for theme color of every character
+char_list = {"Samurai":"aquamarine2",
+             "FireWizard":"orange",
+             "LightningMage":"darkolivegreen1",
+             "VampireGirl":"hotpink3"}
+
 def select_character(name, player,settings):
 
     y = 160
@@ -458,42 +464,44 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
                 start_button.handle_event(event)
                 if player == 1:
                     if samurai_box.rect.collidepoint(mouse_pos):
-                        samurai_box.select()
-                        player += 1
                         select_p1 = "Samurai"
+                        samurai_box.select(char_list,select_p1)
+                        player += 1
                         samurai_select = True
                     elif mage_box.rect.collidepoint(mouse_pos):
-                        mage_box.select()
-                        player += 1
                         select_p1 = "LightningMage"
+                        mage_box.select(char_list,select_p1)
+                        player += 1
                         mage_select = True
                     elif fire_box.rect.collidepoint(mouse_pos):
-                        fire_box.select()
-                        player += 1
                         select_p1 = "FireWizard"
+                        fire_box.select(char_list,select_p1)
+                        player += 1
                         fire_select = True
                     elif vampire_box.rect.collidepoint(mouse_pos):
-                        vampire_box.select()
-                        player += 1
                         select_p1 = "VampireGirl"
+                        vampire_box.select(char_list,select_p1)
+                        player += 1
                         vampire_select = True
 
                 elif player == 2:
                     if samurai_box.rect.collidepoint(mouse_pos) and not samurai_select:
-                        samurai_box.select()
                         select_p2 = "Samurai"
+                        samurai_box.select(char_list,select_p2)
                         player = "2"
                     elif mage_box.rect.collidepoint(mouse_pos) and not mage_select:
-                        mage_box.select()
                         select_p2 = "LightningMage"
+                        mage_box.select(char_list,select_p2)
+                        
                         player = "2"
                     elif fire_box.rect.collidepoint(mouse_pos) and not fire_select:
-                        fire_box.select()
                         select_p2 = "FireWizard"
+                        fire_box.select(char_list,select_p2)
+                        
                         player = "2"
                     elif vampire_box.rect.collidepoint(mouse_pos) and not vampire_select:
-                        vampire_box.select()
                         select_p2 = "VampireGirl"
+                        vampire_box.select(char_list,select_p2)
                         player = "2"
                     
 

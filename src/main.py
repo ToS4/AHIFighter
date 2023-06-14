@@ -10,7 +10,6 @@ HEIGHT = 600
 
 # Fullscreen
 SCREEN = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
-#SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 MAIN_WIDTH = SCREEN.get_width()
 MAIN_HEIGHT = SCREEN.get_height()
 
@@ -39,11 +38,11 @@ current_bg = backgrounds[random.randint(0,2)]
 healthbar_1 = HUD.Health_Bar(100 ,20, 250, 40, scale_factor_width, scale_factor_height)
 healthbar_2 = HUD.Health_Bar(WIDTH-350, 20, 250, 40, scale_factor_width, scale_factor_height, True)
 
-stamina_bar1 = HUD.Stamina_Bar(100,60,180,20,scale_factor_width, scale_factor_height)
-stamina_bar2 = HUD.Stamina_Bar(WIDTH-280,60,180,20,scale_factor_width, scale_factor_height, True)
+stamina_bar1 = HUD.Stamina_Bar(100,59,180,20,scale_factor_width, scale_factor_height)
+stamina_bar2 = HUD.Stamina_Bar(WIDTH-280,59,180,20,scale_factor_width, scale_factor_height, True)
 
 icon_1 = HUD.Character_Icon(0,0,100,100,scale_factor_width, scale_factor_height)
-icon_2 = HUD.Character_Icon(MAIN_WIDTH-100,MAIN_HEIGHT-100,100,100,scale_factor_width, scale_factor_height)
+icon_2 = HUD.Character_Icon(WIDTH-100,0,100,100,scale_factor_width, scale_factor_height)
 
 def game_loop(player1, player2):
     global current_bg
