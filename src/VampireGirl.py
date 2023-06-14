@@ -21,7 +21,7 @@ class VampireGirl():
         self.health = self.max_health
 
         self.speed = 7 * self.width_factor
-        self.jump_power = 20 * self.height_factor
+        self.jump_power = 21 * self.height_factor
 
         self.gravity_y = 0
         self.gravity_x = 0
@@ -40,7 +40,7 @@ class VampireGirl():
         self.hit = 0
 
         self.knockback = 20 * self.width_factor
-        self.damage = 7
+        self.damage = 6
 
         self.using = False
         self.max_stamina = 20
@@ -174,7 +174,7 @@ class VampireGirl():
             self.action = 6 + self.attack_index
 
             def check():
-                if Hitbox((-40 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1, 0.8).detect_collision(SCREEN, target):
+                if Hitbox((-10 if self.flip else +10 ,0),(self.width_factor,self.height_factor),self,1, 0.8).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
@@ -213,7 +213,7 @@ class VampireGirl():
                         target.hit = 1.5
                         target.gravity_y = 0
 
-                        t = 1/60*14*6
+                        t = 1/60*5*8
 
                         time.sleep(t)
                         
