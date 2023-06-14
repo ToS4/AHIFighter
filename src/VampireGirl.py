@@ -174,12 +174,10 @@ class VampireGirl():
             self.action = 6 + self.attack_index
 
             def check():
-                if Hitbox((-75 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1, 1.2).detect_collision(SCREEN, target):
+                if Hitbox((-40 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1, 0.8).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
-
-                    t = 0
 
                     t = 1/60*8*3
 
@@ -210,7 +208,7 @@ class VampireGirl():
                 self.using = True
 
                 def check():
-                    if Hitbox((-60 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1.7).detect_collision(SCREEN, target):
+                    if Hitbox((-60 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1.2).detect_collision(SCREEN, target):
 
                         target.hit = 1.5
                         target.gravity_y = 0
@@ -236,7 +234,7 @@ class VampireGirl():
                 threading.Thread(target=check).start()
 
     def draw(self, SCREEN):
-        #pygame.draw.rect(SCREEN, (0,255,0), self.rect)
+        pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         img = pygame.transform.scale(pygame.transform.flip(self.image, self.flip, False), (self.width_hitbox*3.5*self.width_factor, self.height_hitbox*2*self.height_factor))
         img_rect = img.get_rect()
         if not self.flip:

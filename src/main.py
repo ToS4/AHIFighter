@@ -96,6 +96,7 @@ def game_loop(player1, player2):
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
             reset = not reset
+            
         CLOCK.tick(FPS)
         pygame.display.flip()
 

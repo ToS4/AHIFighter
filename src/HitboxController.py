@@ -13,7 +13,7 @@ class Hitbox():
         self.rect = pygame.Rect(self.x + player.rect.centerx - (1.5 * player.rect.width * player.flip), self.y + player.rect.y, 1.5 * x_factor * player.rect.width, y_factor * player.rect.height)
 
     def detect_collision(self,SCREEN,target):
-        #pygame.draw.rect(SCREEN, (0,255,0), self.rect)
+        pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         if self.rect.colliderect(target.rect):
             return True
         return False
