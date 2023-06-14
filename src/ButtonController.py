@@ -1,4 +1,3 @@
-"""! @brief Defines classes necessary for the buttons and controls"""
 
 ##
 # @file ButtonController.py

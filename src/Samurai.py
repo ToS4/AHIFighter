@@ -1,4 +1,3 @@
-"""! @brief Samurai"""
 
 ##
 # @file Samurai.py

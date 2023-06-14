@@ -1,4 +1,3 @@
-"""! @brief Fire Wizard"""
 
 ##
 # @file FireWizard.py

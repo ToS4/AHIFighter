@@ -1,4 +1,3 @@
-"""! @brief Uses functions to create menus"""
 
 ##
 # @file UI.py

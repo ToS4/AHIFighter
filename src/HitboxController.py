@@ -1,5 +1,3 @@
-"""! @brief Hitbox Controller"""
-
 ##
 # @file HitboxController.py
 #

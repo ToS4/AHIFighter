@@ -1,4 +1,3 @@
-"""! @brief Vampire Girl"""
 
 ##
 # @file VampireGirl.py

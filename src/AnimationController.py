@@ -1,4 +1,3 @@
-"""! @brief Animation Controller"""
 
 ##
 # @file AnimationController.py

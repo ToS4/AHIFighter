@@ -1,4 +1,3 @@
-"""! @brief Lightning Mage"""
 
 ##
 # @file LightningMage.py

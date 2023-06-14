@@ -1,4 +1,3 @@
-"""! @brief Defines classes necessary for the HUD"""
 
 ##
 # @file HUD.py
