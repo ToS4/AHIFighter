@@ -1,3 +1,31 @@
+"""! @brief Main"""
+##
+# @mainpage Main
+#
+# @section description_main Description
+# A School Project using Python and the module PyGame
+#
+#
+# @file main.py
+#
+# @brief Main
+#
+#
+# @section libraries_main Libraries/Modules
+# - pygame
+# - json
+# - random
+# - os
+# - UI (local)
+# - HUD (local)
+#
+#
+# @section author_doxygen_example Author(s)
+# - Created by ToS4
+# - Modified by mirko4001 & ToS4
+#
+
+
 import pygame, json, random, os
 import UI
 import HUD
@@ -45,6 +73,12 @@ icon_1 = HUD.Character_Icon(0,0,100,100,scale_factor_width, scale_factor_height)
 icon_2 = HUD.Character_Icon(WIDTH-100,0,100,100,scale_factor_width, scale_factor_height)
 
 def game_loop(player1, player2):
+    """! Game Loop.
+        
+            @param player1 a class of the selected character 
+            @param player2 a class of the selected character 
+        """
+    
     global current_bg
     running = True
     current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))

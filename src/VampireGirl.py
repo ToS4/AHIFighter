@@ -5,26 +5,20 @@
 #
 # @brief Vampire Girl Character
 #
-# @section description_sensors Description
-# Defines the base and end user classes for various sensors.
-# - Sensor (base class)
-# - TempSensor
+# @section description_vampire_girl Description
+# - the vampire girl class
 #
-# @section libraries_sensors Libraries/Modules
-# - random standard library (https://docs.python.org/3/library/random.html)
-#   - Access to randint function.
+# @section libraries_vampire_girl Libraries/Modules
+# - pygame
+# - time
+# - threading
+# - hitboxcontroller (local)
 #
-# @section notes_sensors Notes
-# - Comments are Doxygen compatible.
+# @section author_vampire_girl Author(s)
+# - Created by ToS4
+# - Modified  by mirko4001 & ToS4
 #
-# @section todo_sensors TODO
-# - None.
-#
-# @section author_sensors Author(s)
-# - Created by John Woolsey on 05/27/2020.
-# - Modified by John Woolsey on 06/11/2020.
-#
-# Copyright (c) 2020 Woolsey Workshop.  All rights reserved.
+##
 
 import pygame, time,threading
 from HitboxController import Hitbox

@@ -1,10 +1,42 @@
+"""! @brief Samurai"""
+
+##
+# @file Samurai.py
+#
+# @brief Samurai Character
+#
+# @section description_samurai Description
+# - the samurai class
+#
+# @section libraries_samurai Libraries/Modules
+# - pygame
+# - time
+# - threading
+# - hitboxcontroller (local)
+#
+# @section author_samurai Author(s)
+# - Created by ToS4
+# - Modified  by mirko4001 & ToS4
+#
+##
+
 import pygame, time,threading
 
 from HitboxController import Hitbox
 
 class Samurai():
+    """! Samurai"""
 
     def __init__(self, pos: tuple, scale_factor: tuple, character_hitbox_size: tuple, flip : bool, controls: dict, animations: list):
+        """! Initializes the Character.
+        
+            @param self the client, a class object of their selected character
+            @param pos  the position of the character's hitbox, a tuple with x- and y-axis
+            @param character_hitbox_size    the width and height of the hitbox
+            @param flip   the character flip state at the start
+            @param controls   the settings keys
+            @param animations   a matrix with all the animations, each action has its own list with all the images saved
+        """
 
         self.Name = "Samurai"
         
@@ -49,7 +81,15 @@ class Samurai():
         self.block_speed = 1 * self.width_factor
 
     def handle_keys(self, SCREEN, WIDTH, HEIGHT, target):
+        """! Key-Handler of the Character
 
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            @param WIDTH    the width of the screen
+            @param HEIGHT   the height of the screen
+            @param target   the target, a class object of their selected character
+            """
+        
         GRAVITY = 2
         keys = pygame.key.get_pressed()
 
@@ -135,6 +175,12 @@ class Samurai():
         self.action = new_action
 
     def update(self, SCREEN):
+        """! Update of the Character
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            """
+        
         if self.attacking: 
             if time.time() - self.attack_cooldown > 0.7:
                 self.attack_cooldown = 0
@@ -156,11 +202,13 @@ class Samurai():
         self.image = self.animations[self.action].get_image()
 
     def attack(self,SCREEN, target):
-        """
-        set attacking to true
-        set an index to the time, the attack has been used
-        check in update function, if the cool
-        """
+        """! Attack Function of the Character (gets fires once clicking a hotkey)
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            @param target   the target, a class object of their selected character
+            """
+        
         if not self.attacking:
             self.attacking = True
             if time.time() - self.attack_hit < 0.9:
@@ -194,6 +242,12 @@ class Samurai():
 
 
     def draw(self, SCREEN):
+        """! Draw Function of the Character
+
+            @param self the client, a class object of their selected character
+            @param SCREEN   the pygame screen object
+            """
+        
         pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         img = pygame.transform.scale(pygame.transform.flip(self.image, self.flip, False), (self.width_hitbox*3.5*self.width_factor, self.height_hitbox*2*self.height_factor))
         img_rect = img.get_rect()
