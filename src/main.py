@@ -42,15 +42,18 @@ healthbar_2 = HUD.Health_Bar(WIDTH-350, 20, 250, 40, scale_factor_width, scale_f
 stamina_bar1 = HUD.Stamina_Bar(100,60,180,20,scale_factor_width, scale_factor_height)
 stamina_bar2 = HUD.Stamina_Bar(WIDTH-280,60,180,20,scale_factor_width, scale_factor_height, True)
 
+icon_1 = HUD.Character_Icon(0,0,100,100,scale_factor_width, scale_factor_height)
+icon_2 = HUD.Character_Icon(MAIN_WIDTH-100,MAIN_HEIGHT-100,100,100,scale_factor_width, scale_factor_height)
+
 def game_loop(player1, player2):
     global current_bg
     running = True
     current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
-    
     # import the reset variable from UI
     reset = UI.reset
 
     while running:
+        print(reset)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -76,27 +79,26 @@ def game_loop(player1, player2):
         stamina_bar1.draw(SCREEN,player1)
         stamina_bar2.draw(SCREEN,player2)
 
+        icon_1.draw(SCREEN,UI.select_p1)
+        icon_2.draw(SCREEN,UI.select_p2)
+
         if player1.health <= 0:
             player1 = UI.select_character(UI.select_p1,1, settings)
             player2 = UI.select_character(UI.select_p2,2, settings)
-            #current_bg = backgrounds[random.randint(0,2)]
-            UI.gameover_menu(scale_factor_width, scale_factor_height, game_loop, settings, "Player 2")
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
+            UI.gameover_menu(scale_factor_width, scale_factor_height, game_loop, settings, "Player 2")
         elif player2.health <= 0:
             player1 = UI.select_character(UI.select_p1,1, settings)
             player2 = UI.select_character(UI.select_p2,2, settings)
-            #current_bg = backgrounds[random.randint(0,2)]
+            current_bg = backgrounds[random.randint(0,2)]
+            current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
             UI.gameover_menu(scale_factor_width, scale_factor_height, game_loop, settings, "Player 1")
-            current_bg = backgrounds[random.randint(0,2)]
-            current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
         if reset:
-            player1 = UI.select_character(UI.select_p1,1, settings)
-            player2 = UI.select_character(UI.select_p2,2, settings)
             current_bg = backgrounds[random.randint(0,2)]
             current_bg = pygame.transform.scale(current_bg, (MAIN_WIDTH,MAIN_HEIGHT))
-            reset = not reset
-            
+            reset = False
+
         CLOCK.tick(FPS)
         pygame.display.flip()
 

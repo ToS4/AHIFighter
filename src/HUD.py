@@ -41,3 +41,23 @@ class Stamina_Bar():
         else:
             pygame.draw.rect(screen, "lightblue", ((self.x-(self.w * prozent)+180)*self.scale_w, self.y*self.scale_h,
                                                     ((self.w * prozent)+2)*self.scale_w, self.h*self.scale_h))
+            
+class Character_Icon():
+    def __init__(self, x,y,w,h, scale_w, scale_h):
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
+
+        self.scale_w = scale_w
+        self.scale_h = scale_h
+
+        self.rect = pygame.Rect(self.x*self.scale_w, self.y*self.scale_h, self.w*self.scale_w, self.h*self.scale_h)
+
+    def draw(self, screen, char):
+        # the picture of the character
+        icon = pygame.image.load(f"src/assets/imgs/{char}/Icon.png")
+        icon = pygame.transform.scale(icon, (99*self.scale_w,99*self.scale_h))
+
+        pygame.draw.rect(screen, "black", self.rect, 3)
+        screen.blit(icon, self.rect)
