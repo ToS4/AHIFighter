@@ -1,3 +1,13 @@
+Main Menu Background Music:
+Source: Private
+Copyright © 2023 AHIF-Fighting. All rights reserved.
+License: This background music for the main menu is provided exclusively for use within this project and may not be reproduced, distributed, or sold without explicit permission from the copyright holder.
+
+Game Background Music:
+Source: Private
+Copyright © 2023 AHIF-Fighting. All rights reserved.
+License: This background music for the game menu is provided exclusively for use within this project and may not be reproduced, distributed, or sold without explicit permission from the copyright holder.
+
 Images for the Samurai Pixel Art Sprite Sheets:
 - Source: CraftPix
 - Link: https://craftpix.net/freebies/free-samurai-pixel-art-sprite-sheets/
