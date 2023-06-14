@@ -295,7 +295,7 @@ class VampireGirl():
             @param SCREEN   the pygame screen object
             """
         
-        pygame.draw.rect(SCREEN, (0,255,0), self.rect)
+        #pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         img = pygame.transform.scale(pygame.transform.flip(self.image, self.flip, False), (self.width_hitbox*3.5*self.width_factor, self.height_hitbox*2*self.height_factor))
         img_rect = img.get_rect()
         if not self.flip:
