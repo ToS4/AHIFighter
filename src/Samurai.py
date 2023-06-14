@@ -175,7 +175,7 @@ class Samurai():
             self.action = 3 + self.attack_index
 
             def check():
-                if Hitbox((0,0),(self.width_factor,self.height_factor),self, 1, 1.6).detect_collision(SCREEN, target):
+                if Hitbox((-80 if self.flip else 0,0),(self.width_factor,self.height_factor),self, 1, 1.5).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
@@ -200,12 +200,12 @@ class Samurai():
         if not self.flip:
             img_rect.bottomleft = self.rect.bottomleft
             img_rect.x -= 25 * self.width_factor
-            if self.action in (2,6,7) or self.attacking:
+            if self.action in (2,6,7) or self.using:
                 img_rect.x -= 50 * self.width_factor
         else:
             img_rect.bottomright = self.rect.bottomright
             img_rect.x += 25 * self.width_factor
-            if self.action in (2,6,7) or self.attacking:
+            if self.action in (2,6,7) or self.using:
                 img_rect.x += 50 * self.width_factor
         
         SCREEN.blit(img, img_rect)
