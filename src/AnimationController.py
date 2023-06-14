@@ -1,7 +1,18 @@
 import pygame
 
 class Animation:
+    """! Animation Class"""
+
     def __init__(self, sprite_sheet, frame_width, frame_height, frame_duration):
+        """! Initializes the Animation.
+        
+            @param self the animation class
+            @param sprite the loaded sprite using pygame
+            @param frame_width    image width
+            @param frame_height   image height
+            @param frame_duration   how long frames each images takes
+        """
+
         self.sprite_sheet = sprite_sheet
         self.frame_width = frame_width
         self.frame_height = frame_height
@@ -13,7 +24,13 @@ class Animation:
         self.load_frames()
 
     def load_frames(self):
+        """! Load Frames.
         
+            @param self the animation class
+
+            cuts the sprite-sheet and saves all images in a list
+        """
+
         sheet_width = self.sprite_sheet.get_width()
         sheet_height = self.sprite_sheet.get_height()
         rows = sheet_height // self.frame_height
