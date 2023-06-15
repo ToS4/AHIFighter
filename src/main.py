@@ -5,7 +5,6 @@
 # @section description_main Description
 # A School Project using Python and the module PyGame
 #
-
 ##
 # @file main.py
 #

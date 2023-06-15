@@ -45,7 +45,7 @@ class Hitbox():
             @param SCREEN the screen object (from pygame)
             @param target the target class
         """
-        pygame.draw.rect(SCREEN, (0,255,0), self.rect)
+        #pygame.draw.rect(SCREEN, (0,255,0), self.rect)
         if self.rect.colliderect(target.rect):
             return True
         return False
