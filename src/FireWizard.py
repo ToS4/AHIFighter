@@ -218,7 +218,7 @@ class FireWizard():
             self.action = 6 + self.attack_index
 
             def check():
-                if Hitbox((-75 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1, 1.2).detect_collision(SCREEN, target):
+                if Hitbox((-30 if self.flip else -20 ,0),(self.width_factor,self.height_factor),self,1, 1.2).detect_collision(SCREEN, target):
 
                     target.hit = 1
                     target.gravity_y = 0
@@ -261,7 +261,7 @@ class FireWizard():
                 self.using = True
 
                 def check():
-                    if Hitbox((-60 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1.7).detect_collision(SCREEN, target):
+                    if Hitbox((-40 if self.flip else +30 ,0),(self.width_factor,self.height_factor),self,1,1.7).detect_collision(SCREEN, target):
 
                         target.hit = 1.5
                         target.gravity_y = 0
