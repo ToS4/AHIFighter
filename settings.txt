@@ -1,1 +1,1 @@
-{"player1": {"left": 97, "right": 100, "jump": 119, "attack": 102, "block": 115, "ability": 1073742049}, "player2": {"left": 1073741914, "right": 1073741920, "jump": 1073741916, "attack": 1073741912, "block": 43, "ability": 1073741917}}
+{"player1": {"left": 97, "right": 100, "jump": 119, "attack": 102, "block": 115, "ability": 101}, "player2": {"left": 1073741904, "right": 1073741903, "jump": 1073741906, "attack": 1073741905, "block": 43, "ability": 1073741922}}
