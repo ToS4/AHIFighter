@@ -90,7 +90,7 @@ def game_loop(player1, player2):
     reset = UI.reset
 
     while running:
-        print(player1.health)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
