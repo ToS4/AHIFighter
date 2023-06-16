@@ -56,13 +56,13 @@ class Health_Bar():
         """
 
         prozent = player.health / player.max_health
-        pygame.draw.rect(screen, "Red", (self.x*self.scale_w, self.y*self.scale_h, self.width*self.scale_w, self.height*self.scale_h))
+        pygame.draw.rect(screen, "Red", (self.x*self.scale_w, self.y*self.scale_h, (self.width*(player.max_health/100))*self.scale_w, self.height*self.scale_h))
         if not self.reversed:
-            pygame.draw.rect(screen, "Green", (self.x*self.scale_w, self.y*self.scale_h, (self.width * prozent)*self.scale_w, self.height*self.scale_h))
+            pygame.draw.rect(screen, "Green", (self.x*self.scale_w, self.y*self.scale_h, ((self.width*(player.max_health/100)) * prozent)*self.scale_w, self.height*self.scale_h))
         else:
             pygame.draw.rect(screen, "Green", ((self.x-(self.width*prozent)+250)*self.scale_w, self.y*self.scale_h,
-                                                ((self.width * prozent)+2)*self.scale_w, self.height*self.scale_h))
-        pygame.draw.rect(screen,"black",(self.x*self.scale_w, self.y*self.scale_h, self.width*self.scale_w, self.height*self.scale_h), 1)
+                                                (((self.width*(player.max_health/100)) * prozent)+2)*self.scale_w, self.height*self.scale_h))
+        pygame.draw.rect(screen,"black",(self.x*self.scale_w, self.y*self.scale_h, (self.width*(player.max_health/100))*self.scale_w, self.height*self.scale_h), 1)
 
 class Stamina_Bar():
     """! The Stamina_Bar class

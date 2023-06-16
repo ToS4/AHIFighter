@@ -49,7 +49,7 @@ class Samurai():
 
         self.rect = pygame.Rect((self.x*self.width_factor,self.y*self.height_factor, self.width_hitbox*self.width_factor, self.height_hitbox*self.height_factor))
 
-        self.max_health = 100
+        self.max_health = 120
         self.health = self.max_health
 
         self.speed = 5 * self.width_factor

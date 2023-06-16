@@ -184,8 +184,11 @@ class CharacterBox:
         """
         self.rect = pygame.Rect(x*scale_width, y*scale_height, w*scale_width, h*scale_height)
         self.color = color
+        self.scale_w = scale_width
+        self.scale_h = scale_height
 
         self.char = char
+        self.selected = False
 
     def draw(self, screen):
         """! Draws the Box
@@ -196,7 +199,7 @@ class CharacterBox:
         """
         pygame.draw.rect(screen, self.color, self.rect)
         pygame.draw.rect(screen, "black", self.rect, 2)
-        
+                
     def select(self,char_list, char):
         """! Changes color of the box, when it is selected
 

@@ -503,32 +503,89 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     samurai_img = pygame.transform.scale(samurai_img, (99*scale_width_factor, 99*scale_height_factor))
     samurai_select = False
 
+    # This is a surface of the whole character for when he is selected
+    samurai_surface = pygame.image.load("src/assets/imgs/Samurai/Ability.png").convert_alpha()
+    samurai_surface = pygame.transform.scale(samurai_surface, (550,600))
+
     # This will be the box for the mage selection
-    mage_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Lightning Mage")
+    mage_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "LightningMage")
     mage_box.rect.center = (MAIN_WIDTH/2-60*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
     mage_img = pygame.image.load(os.path.join("src/assets/imgs/LightningMage/Icon.png")).convert_alpha()
     mage_img = pygame.transform.scale(mage_img, (99*scale_width_factor, 99*scale_height_factor))
     mage_select = False
 
+    mage_surface = pygame.image.load("src/assets/imgs/LightningMage/Standing.png").convert_alpha()
+    mage_surface = pygame.transform.scale(mage_surface, (550,600))
+
     # This will be the box for the fire wizard selection
-    fire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Fire Wizard")
+    fire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "FireWizard")
     fire_box.rect.center = (MAIN_WIDTH/2+60*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
     fire_img = pygame.image.load(os.path.join("src/assets/imgs/FireWizard/Icon.png")).convert_alpha()
     fire_img = pygame.transform.scale(fire_img, (99*scale_width_factor, 99*scale_height_factor))
     fire_select = False
 
+    fire_surface = pygame.image.load("src/assets/imgs/FireWizard/Standing.png").convert_alpha()
+    fire_surface = pygame.transform.scale(fire_surface, (550,600))
+
     # This will be the box for the vampire selection
-    vampire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "Vampire Girl")
+    vampire_box = CharacterBox(0,0,100,100,"white",scale_width_factor, scale_height_factor, "VampireGirl")
     vampire_box.rect.center = (MAIN_WIDTH/2+180*scale_width_factor, MAIN_HEIGHT/2 - 80 * scale_height_factor)
     vampire_img = pygame.image.load(os.path.join("src/assets/imgs/VampireGirl/Icon.png")).convert_alpha()
     vampire_img = pygame.transform.scale(vampire_img, (99*scale_width_factor, 99*scale_height_factor))
     vampire_select = False
+
+    vampire_surface = pygame.image.load("src/assets/imgs/VampireGirl/Standing.png").convert_alpha()
+    vampire_surface = pygame.transform.scale(vampire_surface, (550,600))
 
     char = ""
     text = Button(0,0,300,80,(255,255,255,0),char,"black", font_scaled,scale_width_factor, scale_height_factor, None)
     text.rect.width = 10
     text.rect.height = 10
     text.rect.center = (MAIN_WIDTH/2, MAIN_HEIGHT/2 - 40*scale_height_factor)
+
+    def draw_char_player1(screen, char_p1, char_p2):
+        if char_p1:
+            surface = pygame.image.load(f"src/assets/imgs/{char_p1}/Standing.png").convert_alpha()
+            surface = pygame.transform.scale(surface, (550,600))
+            screen.blit(surface, (-50*scale_width_factor,-120*scale_height_factor))
+
+        if char_p2:
+            surface = pygame.image.load(f"src/assets/imgs/{char_p2}/Standing.png").convert_alpha()
+            surface = pygame.transform.scale(surface, (550,600))
+            screen.blit(surface, ((WIDTH-350)*scale_width_factor,-120*scale_height_factor))
+
+    
+    def draw_stats(screen, char_p1, char_p2):
+        if char_p1:
+            temp_char = eval(f"{char_p1}")((0,0),(0,0),(0,0),False,{},[])
+            damage = temp_char.damage
+            health = temp_char.health
+            damage_surface = font_scaled.render(f"Damage: {str(damage)}", True, char_list[char_p1])
+            health_surface = font_scaled.render(f"Health: {str(health)}", True, char_list[char_p1])
+            screen.blit(damage_surface, (100*scale_width_factor,350*scale_height_factor))
+            screen.blit(health_surface, (100*scale_width_factor,400*scale_height_factor))
+        if char_p2:
+            temp_char = eval(f"{char_p2}")((0,0),(0,0),(0,0),False,{},[])
+            damage = temp_char.damage
+            health = temp_char.health
+            damage_surface = font_scaled.render(f"Damage: {str(damage)}", True, char_list[char_p2])
+            health_surface = font_scaled.render(f"Health: {str(health)}", True, char_list[char_p2])
+            screen.blit(damage_surface, ((WIDTH-250)*scale_width_factor,350*scale_height_factor))
+            screen.blit(health_surface, ((WIDTH-250)*scale_width_factor,400*scale_height_factor))
+
+    def draw_stats_hovered(screen, char, player):
+        temp_char = eval(f"{char}")((0,0),(0,0),(0,0),False,{},[])
+        damage = temp_char.damage
+        health = temp_char.health
+        damage_surface = font_scaled.render(f"Damage: {str(damage)}", True, char_list[char])
+        health_surface = font_scaled.render(f"Health: {str(health)}", True, char_list[char])
+        if player == 1:
+            screen.blit(damage_surface, (100*scale_width_factor,350*scale_height_factor))
+            screen.blit(health_surface, (100*scale_width_factor,400*scale_height_factor))
+        if player == 2:
+            screen.blit(damage_surface, ((WIDTH-250)*scale_width_factor,350*scale_height_factor))
+            screen.blit(health_surface, ((WIDTH-250)*scale_width_factor,400*scale_height_factor))
+            
 
     while True:
         if player == "2":
@@ -589,19 +646,6 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
                         select_p2 = "VampireGirl"
                         vampire_box.select(char_list,select_p2)
                         player = "2"
-                    
-
-        if samurai_box.rect.collidepoint(mouse_pos):
-            char = samurai_box.char
-        elif mage_box.rect.collidepoint(mouse_pos):
-            char = mage_box.char
-        elif fire_box.rect.collidepoint(mouse_pos):
-            char = fire_box.char
-        elif vampire_box.rect.collidepoint(mouse_pos):
-            char = vampire_box.char
-        else:
-            char = ""
-
         
         text = Button(0,0,300,80,(255,255,255,0),char,"black", font_scaled,scale_width_factor, scale_height_factor, None)
         text.rect.width = 10
@@ -615,6 +659,37 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     
         SCREEN.fill((255,255,255))
 
+        if samurai_box.rect.collidepoint(mouse_pos):
+            char = samurai_box.char
+            if player == 1:
+                SCREEN.blit(samurai_surface, (-50*scale_width_factor,-120*scale_height_factor))
+            elif player == 2:
+                SCREEN.blit(samurai_surface, ((WIDTH-350)*scale_width_factor,-120*scale_height_factor))
+            draw_stats_hovered(SCREEN, char, player)
+        elif mage_box.rect.collidepoint(mouse_pos):
+            char = mage_box.char
+            if player == 1:
+                SCREEN.blit(mage_surface, (-50*scale_width_factor,-120*scale_height_factor))
+            elif player == 2:
+                SCREEN.blit(mage_surface, ((WIDTH-350)*scale_width_factor,-120*scale_height_factor))
+            draw_stats_hovered(SCREEN, char, player)
+        elif fire_box.rect.collidepoint(mouse_pos):
+            char = fire_box.char
+            if player == 1:
+                SCREEN.blit(fire_surface, (-50*scale_width_factor,-120*scale_height_factor))
+            elif player == 2:
+                SCREEN.blit(fire_surface, ((WIDTH-350)*scale_width_factor,-120*scale_height_factor))
+            draw_stats_hovered(SCREEN, char, player)
+        elif vampire_box.rect.collidepoint(mouse_pos):
+            char = vampire_box.char
+            if player == 1:
+                SCREEN.blit(vampire_surface, (-50*scale_width_factor,-120*scale_height_factor))
+            elif player == 2:
+                SCREEN.blit(vampire_surface, ((WIDTH-350)*scale_width_factor,-120*scale_height_factor))
+            draw_stats_hovered(SCREEN, char, player)
+        else:
+            char = ""
+
         start_button.hover_effect(mouse_pos)
 
         selecting_text.draw(SCREEN)
@@ -624,6 +699,12 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
         fire_box.draw(SCREEN)
         vampire_box.draw(SCREEN)
         text.draw(SCREEN)
+
+        # This will draw the Character for player 1 on the left
+        draw_char_player1(SCREEN, select_p1, select_p2)
+
+        # Draw the stats
+        draw_stats(SCREEN,select_p1, select_p2)
 
         # this will blit the images into the boxes
         SCREEN.blit(samurai_img, samurai_box)
