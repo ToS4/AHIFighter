@@ -493,6 +493,9 @@ def play_menu(scale_width_factor, scale_height_factor, dest_gameloop, settings):
     @param settings             The Keybinds that are saved in settings.txt
     """
     global select_p1, select_p2, player1, player2
+
+    select_p1 = None
+    select_p2 = None
     
     player = 1
 
