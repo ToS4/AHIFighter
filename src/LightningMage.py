@@ -70,7 +70,7 @@ class LightningMage():
         self.attack_hit = 0
         self.hit = 0
 
-        self.knockback = 20 * self.width_factor
+        self.knockback = 15 * self.width_factor
         self.damage = 7
 
         self.using = False

@@ -72,7 +72,7 @@ class Samurai():
         self.hit = 0
 
         self.knockback = 20 * self.width_factor
-        self.damage = 5
+        self.damage = 4
 
         self.using = False
         self.max_stamina = 25

@@ -48,7 +48,7 @@ class VampireGirl():
 
         self.rect = pygame.Rect((self.x*self.width_factor,self.y*self.height_factor, self.width_hitbox*self.width_factor, self.height_hitbox*self.height_factor))
 
-        self.max_health = 100
+        self.max_health = 110
         self.health = self.max_health
 
         self.speed = 7 * self.width_factor
@@ -71,13 +71,13 @@ class VampireGirl():
         self.hit = 0
 
         self.knockback = 20 * self.width_factor
-        self.damage = 6
+        self.damage = 5
 
         self.using = False
         self.max_stamina = 20
         self.stamina = self.max_stamina
         self.stamina_need = self.max_stamina
-        self.ability_damage = self.damage * 2.4
+        self.ability_damage = self.damage * 2.6
         self.ability_frames = 0
 
     def handle_keys(self, SCREEN, WIDTH, HEIGHT, target):
